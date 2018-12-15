@@ -70,5 +70,19 @@ gem 'bootstrap', '~> 4.1.3'
 #jQuery
 gem 'jquery-rails'
 
+
+##################???
 #Auto prefix
 #gem 'autoprefixer-rails'
+##################???
+
+
+##################
+#OMNIAUTH
+
+gem 'omniauth-facebook'
+
+gem 'omniauth-google-oauth2'
+
+##################
+

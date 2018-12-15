@@ -1,6 +1,7 @@
 <h1>Dashboard#dash</h1>
 <p>Find me in app/views/dashboard/dash.html.erb</p>
 <p>This is what the dashboard page will be for logged in users.</p>
+<%= image_tag (@user.img) %>
 
 
 <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
