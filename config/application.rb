@@ -15,14 +15,22 @@ module IFBuddy
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+
+    #---------PER https://qiita.com/alokrawat050/items/0d7791b3915579f95791
+    #TO USE ENVIRONMENT VARIABLES
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
+    #------------------------------------------------------------------------
+
+
+
   end
 end
 
-#---------PER https://qiita.com/alokrawat050/items/0d7791b3915579f95791
-config.before_configuration do
-  env_file = File.join(Rails.root, 'config', 'local_env.yml')
-  YAML.load(File.open(env_file)).each do |key, value|
-    ENV[key.to_s] = value
-  end if File.exists?(env_file)
-end
-#------------------------------------------------------------------------
+
+
