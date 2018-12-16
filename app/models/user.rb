@@ -67,7 +67,7 @@ class User < ApplicationRecord
     else
 
       #If user has an active fast we should change this to something more interesting.
-      "Your current fast schedule is #{self.fasting_window_length}/#{self.eating_window_length}."
+      "Your current fast schedule is #{self.fasts.last.fasting_window_length}/#{self.fasts.last.eating_window_length}."
     
     end
 
@@ -79,10 +79,6 @@ class User < ApplicationRecord
     if self.fasts.empty?
 
       "Start Your First Fast Schedule"
-
-    elsif self.fasts.last.active
-
-      "Break Current Fast Schedule and Start a New One"
     
     else
 
