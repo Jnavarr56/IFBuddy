@@ -1,5 +1,7 @@
 class User < ApplicationRecord  
 
+  has_many :fasts, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
   devise :database_authenticatable, :registerable,                #|---MAKE SURE TO TURN ON OMNIAUTHABLE AND STATE PROVIDERS---|
@@ -49,6 +51,47 @@ class User < ApplicationRecord
     user
 
   end
+
+
+
+  def dash_initial_fast_display_text
+
+    if self.fasts.empty?
+
+      "You haven't begun a fast schedule yet."
+
+    elsif !self.fasts.last.active
+
+      "You do not currently have an active fast schedule."
+
+    else
+
+      #If user has an active fast we should change this to something more interesting.
+      "Your current fast schedule is #{self.fasting_window_length}/#{self.eating_window_length}."
+    
+    end
+
+  end
+
+
+  def dash_new_fast_link_text
+
+    if self.fasts.empty?
+
+      "Start Your First Fast Schedule"
+
+    elsif self.fasts.last.active
+
+      "Break Current Fast Schedule and Start a New One"
+    
+    else
+
+      "Start a New Fast Schedule"
+    
+    end
+
+  end
+
 
 end
 

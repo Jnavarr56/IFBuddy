@@ -1,7 +1,13 @@
-<h1>Dashboard#dash</h1>
-<p>Find me in app/views/dashboard/dash.html.erb</p>
-<p>This is what the dashboard page will be for logged in users.</p>
+<%= content_tag :h1, "Dashboard" %>
 
+<%= content_tag :p, @user.dash_initial_fast_display_text %>
 
+<%= link_to @user.dash_new_fast_link_text, new_fast_path %>
 
+<% if !@user.fasts.empty? && @user.fasts.last.active %>
+    <%= link_to "Break Current Fast Schedule", root_path %>
+    <%= link_to "View Fast History", fasts_path %>
+<% end %>
+
+<%= link_to "Account", edit_user_registration_path %>
 <%= link_to "Log out", destroy_user_session_path, :method => :delete %>

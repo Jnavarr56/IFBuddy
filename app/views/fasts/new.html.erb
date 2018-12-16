@@ -1,0 +1,50 @@
+<%= content_tag :h1, "Create a New Fast Schedule." %>
+
+
+<%= form_for @fast do |f| %>
+  
+    <div class="field">
+      <%= f.label :start_date %><br />
+      <%= f.date_field :start_date %>
+    </div>
+
+    <div class="field">
+        <%= f.label :start_time %><br />
+        <%= f.time_field :start_time %>
+    </div>
+
+    <div class="field">
+        <%= f.label :start_with_fast %><br />
+        <%= f.check_box :start_with_fast %>
+    </div>
+
+    <div class="field">
+        <%= f.label :fasting_window_length %><br />
+        <%= f.number_field :fasting_window_length %>
+    </div>
+
+    <div class="field">
+        <%= f.label :eating_window_length %><br />
+        <%= f.number_field :eating_window_length %>
+    </div>
+
+    <% if false %>
+    <div class="field">
+        <%= f.hidden_field :active, :value => true %>
+    </div>
+
+    <div class="field">
+        <%= f.hidden_field :user_id, :value => true %>
+    </div>
+    <% end %>
+  
+  
+    <div class="actions">
+      <%= f.submit "Go" %>
+    </div>
+
+<% end %>
+
+
+
+<%= link_to "Back", :back %>
