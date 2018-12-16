@@ -12,7 +12,7 @@ class FastsController < ApplicationController
 
     def create
 
-        #Create a new fast object with params from the user.
+        #Create a new fast object with sanitized params from the user and then add our "default values".
         @fast = Fast.new(fast_params.merge(user_id: current_user.id, active: true))
         
         if @fast.save
