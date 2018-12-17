@@ -7,7 +7,9 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module IFBuddy
+
   class Application < Rails::Application
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
@@ -17,19 +19,18 @@ module IFBuddy
     # the framework and any gems in your application.
 
 
-    #---------PER https://qiita.com/alokrawat050/items/0d7791b3915579f95791
-    #TO USE ENVIRONMENT VARIABLES
+    # Allows us to use our variables in local_env.yml as environment variables.
+    # See this link for steps: https://qiita.com/alokrawat050/items/0d7791b3915579f95791
+
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
       YAML.load(File.open(env_file)).each do |key, value|
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
-    #------------------------------------------------------------------------
-
-
-
+  
   end
+
 end
 
 

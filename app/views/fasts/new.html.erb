@@ -1,5 +1,7 @@
 <%= content_tag :h1, "Create a New Fast Schedule." %>
 
+<%-# Render the partial we created to show save errors -%>
+<%= render "fasts/shared/error_messages" %>
 
 <%= form_for @fast do |f| %>
   
@@ -33,7 +35,5 @@
     </div>
 
 <% end %>
-
-
 
 <%= link_to "Back", :back %>

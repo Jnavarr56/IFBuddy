@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+
   def landing
   end
 
@@ -6,6 +7,6 @@ class DashboardController < ApplicationController
 
     @user = current_user
     
-
   end
+  
 end

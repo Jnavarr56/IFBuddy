@@ -4,6 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
         user = User.from_omniauth(request.env["omniauth.auth"])
 
+        #If the user can be retrieved, either because it was created with OAuth or because the user simply exists then start a session for this user (sign in).
         if user.persisted? 
 
           session[:user_id] = user.id
@@ -20,6 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         
     end
 
+    #We want this method to apply in the event the provider is Facebook OR Google.
     alias_method :facebook, :all
     alias_method :google_oauth2, :all
 

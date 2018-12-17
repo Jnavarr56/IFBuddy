@@ -61,28 +61,26 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#User auth
+####################################
+# OAuth with Devise
 gem 'devise'
-
-#Bootstrap
-gem 'bootstrap', '~> 4.1.3'
-
-#jQuery
-gem 'jquery-rails'
-
-
-##################???
-#Auto prefix
-#gem 'autoprefixer-rails'
-##################???
-
-
-##################
-#OMNIAUTH
 
 gem 'omniauth-facebook'
 
 gem 'omniauth-google-oauth2'
 
-##################
+# Bootstrap
+gem 'bootstrap', '~> 4.1.3'
+
+# Font-Awesome
+gem 'font-awesome-sass', '~> 5.5.0'
+
+# jQuery
+gem 'jquery-rails'
+
+# Active Storage with AWS
+gem "aws-sdk-s3", require: false
+####################################
+
+
 

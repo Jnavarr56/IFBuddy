@@ -3,12 +3,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+
+  <%-# Added our custom registration fields as well as a field section for profile picture. -%>
   <div class="field">
     <%= f.label :img, "Profile Picture" %><br />
-    <%= image_tag(@user.img) %>
-    <% if false %>
-      <%= f.text_field :img %> 
-    <% end %>
+    <img id="preview-pic">
+    <button id="clear-upload-button">Clear Upload</button>
+    <%= @user.return_user_img %>
+    <%= f.file_field :uploaded_profile_pic %>
   </div>
 
   <div class="field">

@@ -1,6 +1,7 @@
 class User < ApplicationRecord  
 
   has_many :fasts, dependent: :destroy
+  has_one_attached :uploaded_profile_pic
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
@@ -52,9 +53,21 @@ class User < ApplicationRecord
 
   end
 
+  def nullify_last_fast_if_needed
+
+    # Make last fast record have an active value of false in the event that there is an active fast.
+    if self.fasts.last.active 
+
+      self.fasts.last.update_column(:active, false)
+
+    end
+
+  end
 
 
+  
   def dash_initial_fast_display_text
+    # Return initial header text for user dashboard based on status of associated Fast records.
 
     if self.fasts.empty?
 
@@ -66,7 +79,7 @@ class User < ApplicationRecord
 
     else
 
-      #If user has an active fast we should change this to something more interesting.
+      
       "Your current fast schedule is #{self.fasts.last.fasting_window_length}/#{self.fasts.last.eating_window_length}."
     
     end
@@ -75,6 +88,7 @@ class User < ApplicationRecord
 
 
   def dash_new_fast_link_text
+    # Return text link to fasts#new based in on status of associated Fast records.
 
     if self.fasts.empty?
 
@@ -84,6 +98,31 @@ class User < ApplicationRecord
 
       "Start a New Fast Schedule"
     
+    end
+
+  end
+  
+  def return_user_img
+    # Returns appropriate html/erb element for user's profile picture based on if has uploaded_profile_pic or img fields.
+
+    if self.uploaded_profile_pic.attached?
+
+      ApplicationController.helpers.image_tag(
+        
+        Rails.application.routes.url_helpers.rails_blob_path(self.uploaded_profile_pic, only_path: true),
+
+        id: 'current-account-pic'
+
+      )
+
+    elsif self.img?
+
+      image_tag(self.img, id: 'current-account-pic')
+    
+    else
+
+      "<i id = 'current-account-pic' class='fas fa-user'></i>".html_safe #<- Render a generic sillouhette.
+
     end
 
   end
