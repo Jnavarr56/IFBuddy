@@ -117,7 +117,12 @@ class User < ApplicationRecord
 
     elsif self.img?
 
-      image_tag(self.img, id: 'current-account-pic')
+      ApplicationController.helpers.image_tag(
+
+        self.img, 
+        
+        id: 'current-account-pic'
+      )
     
     else
 

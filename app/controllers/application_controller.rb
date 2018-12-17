@@ -19,8 +19,12 @@ class ApplicationController < ActionController::Base
     end
 
     def purge_old_image
-      
-      current_user.uploaded_profile_pic.purge
+
+      if !current_user.nil?
+        
+        current_user.uploaded_profile_pic.purge
+
+      end
 
     end
 
