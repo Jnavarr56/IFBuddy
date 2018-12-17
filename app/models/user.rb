@@ -56,7 +56,7 @@ class User < ApplicationRecord
   def nullify_last_fast_if_needed
 
     # Make last fast record have an active value of false in the event that there is an active fast.
-    if self.fasts.last.active 
+    if !self.fasts.empty? && self.fasts.last.active 
 
       self.fasts.last.update_column(:active, false)
 
