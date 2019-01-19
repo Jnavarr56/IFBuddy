@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
 
+      #These work because when updating, it will use the all of the keys in the entire params hash.
+      #See page 50.
+      
       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :uploaded_profile_pic])
-
+      
       devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :uploaded_profile_pic])
       
     end

@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
   #Let devise handle the routes for authentication and OAuth.
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { 
+    
+    omniauth_callbacks: 'users/omniauth_callbacks',
+
+    passwords: 'users/passwords',
+
+    registrations: 'users/registrations'
+
+  }
 
   devise_scope :user do
 
@@ -14,6 +22,8 @@ Rails.application.routes.draw do
     end
 
   end
+
+  post "set_new_password", to: "dashboard#set_new_password"
 
   resources :fasts #<- Draw all the standard routes for our Fast model.
 

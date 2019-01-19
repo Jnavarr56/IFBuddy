@@ -1,0 +1,17 @@
+<% if @user.signed_up_with_oauth %>
+
+    <%= link_to('#', id: "notification-password") do %>
+
+        Account Notification - <%= icon('fas', 'exclamation') %>
+
+    <% end %>
+
+<% else %>
+
+    <%= link_to "Account", edit_user_registration_path %>
+
+<% end %>
+
+<br>
+
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>

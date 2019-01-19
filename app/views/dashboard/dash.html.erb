@@ -1,13 +1,29 @@
 <%= content_tag :h1, "Dashboard" %>
 
-<%= content_tag :p, @user.dash_initial_fast_display_text %>
+<br>
 
-<%= link_to @user.dash_new_fast_link_text, new_fast_path %>
+<% if @user.has_current_active_fast? %>
 
-<% if !@user.fasts.empty? && @user.fasts.last.active %>
-    <%= link_to "Break Current Fast Schedule", root_path %>
-    <%= link_to "View Fast History", fasts_path %>
+    <%= render "dashboard/shared/has_current_active_fast" %>
+
+<% elsif @user.has_current_inactive_fast? %>
+
+    <%= render "dashboard/shared/has_current_inactive_fast" %>
+
+<% elsif @user.has_incurrent_active_fast? %>
+
+    <%= render "dashboard/shared/has_incurrent_active_fast" %>
+
+<% else %>
+
+    <%= render "dashboard/shared/has_no_fast" %>
+    
 <% end %>
 
-<%= link_to "Account", edit_user_registration_path %>
-<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+<br>
+
+<%= render "dashboard/shared/links" %>
+
+
+
+

@@ -1,0 +1,26 @@
+<% current_status = @user.fasts.last.current_status %>
+
+<h3 
+    id="active-fast-schedule"
+    data-action= <%= current_status[:status].to_s %> 
+    data-future-date= "<%= current_status[:date_until] %>"
+>loading...</h3>
+
+<br>
+
+<h6>
+    Your current fast schedule is 
+    <%= @user.fasts.last.fasting_window_length %> [Fasting]
+    <%= @user.fasts.last.eating_window_length %> [Eating].
+</h6>
+
+<%= link_to "End Current Fast Schedule", root_path %>
+
+<br>
+
+<%= link_to "Start a New Fast Schedule", new_fast_path %>
+
+<br>
+
+
+<%= link_to "Your Fast Data", fasts_path %>
