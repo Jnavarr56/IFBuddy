@@ -22,9 +22,9 @@ document.addEventListener('turbolinks:load', function() {
             $.ajax({
                 type: "POST", 
                 url: "/things",
-                data: { command: 'titbean'},
-                success: function(data, textStatus, jqXHR){...},
-                error: function(jqXHR, textStatus, errorThrown){...}
+                data: { command: 'titbean' },
+                success: function(data, textStatus, jqXHR){},
+                error: function(jqXHR, textStatus, errorThrown){}
             });
 
         });
