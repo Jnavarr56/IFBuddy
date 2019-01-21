@@ -16,11 +16,19 @@ class DashboardController < ApplicationController
 
   def set_new_password
 
-    current_user.send_reset_password_instructions
+    if set_new_password_params[:command] == "set_new_password_from_social_sign_up"
 
-    render json: { 'sucess_message' => 'true' }
+      current_user.send_reset_password_instructions
 
-    sign_out current_user
+      render json: { 'sucess_message' => 'true' }
+  
+      sign_out current_user
+    
+    else
+
+      render json: { 'sucess_message' => 'FAIL' }
+
+    end
 
   end
 

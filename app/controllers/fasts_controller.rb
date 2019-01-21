@@ -3,6 +3,8 @@ class FastsController < ApplicationController
     # Make sure user is logged in before doing anything related to fasts.
     before_action :authenticate_user!
 
+    before_action :end_current_fast_params, only: [:end_current_fast]
+
     def new
 
         @fast = Fast.new
@@ -33,12 +35,38 @@ class FastsController < ApplicationController
 
     end
 
+    def end_current_fast
+
+        if end_current_fast_params[:command] == "end-current-fast"
+
+            puts current_user.fasts.last.inspect
+            puts current_user.fasts.last.inspect
+            puts current_user.fasts.last.inspect
+            puts current_user.fasts.last.inspect
+
+            render json: { 'sucess_message' => 'SUCESS' }
+
+        else
+
+            render json: { 'sucess_message' => 'FAIL' }
+
+        end
+
+    end
+
     private
 
         def fast_params
 
             # Use strong params to unsure only the inputs from the forms are passed through.
             params.require(:fast).permit(:start_date, :start_time, :start_with_fast, :fasting_window_length, :eating_window_length)
+                
+        end
+
+        def end_current_fast_params
+
+            # Use strong params to unsure only the inputs from the forms are passed through.
+            params.require(:end_current_fast_params).permit(:command)
                 
         end
 

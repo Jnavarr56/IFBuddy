@@ -5,14 +5,14 @@ document.addEventListener('turbolinks:load', function() {
     //Code for dashboard#dash view goes here.
 
 
-    //Function responsible for count down;
+    // 1) Function responsible for count down;
     if ($('#active-fast-schedule')) {
 
         displayTimeUntil('#active-fast-schedule');
 
     }
 
-    //Send password reset instructions via post request from dashboard.
+    // 2) Send password reset instructions via post request from dashboard.
     if ($('#notification-password')) {
 
         $('#notification-password').click(function() {
@@ -54,5 +54,47 @@ document.addEventListener('turbolinks:load', function() {
         });
 
     }
+
+    // 3) Break fast via post request from dashboard.
+
+    $('#end-fast-post-link').click(function(e) {
+
+        e.preventDefault();
+
+        if (confirm('Are you sure you want to end your current fast?')) {
+
+            let sendPostData = {
+
+                end_current_fast_params: { command: 'end-current-fast' } 
+
+            };
+
+            $.ajax({
+                type: 'POST', 
+                contentType: 'application/json',
+                url: '/end-current-fast',
+                data: JSON.stringify(sendPostData),
+                dataType: 'json',
+                success: function(data, textStatus, jqXHR){
+
+                    if (data.sucess_message === "SUCESS") { 
+
+                        location.reload();
+
+                    }
+                    
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+
+                }
+            });            
+
+        }
+
+    });
 
 });
