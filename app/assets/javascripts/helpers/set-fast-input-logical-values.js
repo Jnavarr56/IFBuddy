@@ -12,7 +12,7 @@ const setCalendarDateMin = calendarInputID => {
 const setTimeVal = timeInputID => {
 
     let today = new Date(),
-        todayAsHTMLValue = `${today.getHours() <= 9 ? '0' + (today.getHours()).toString() : today.getHours()}:${today.getMinutes() <= 9 ? '0' + (today.getMinutes()).toString() : today.getMinutes()}:${today.getSeconds() <= 9 ? '0' + (today.getSeconds()).toString() : today.getSeconds()}`;
+        todayAsHTMLValue = `${today.getHours() <= 9 ? '0' + (today.getHours()).toString() : today.getHours()}:${today.getMinutes() <= 9 ? '0' + (today.getMinutes()).toString() : today.getMinutes()}`;    
 
     $(`#${timeInputID}`).val(todayAsHTMLValue);
 }
