@@ -1,6 +1,11 @@
 class DashboardController < ApplicationController
 
+  before_action :authenticate_user!
+
+  before_action :set_new_password_params, only: [:set_new_password]
+
   def landing
+
   end
 
   def dash
@@ -11,11 +16,20 @@ class DashboardController < ApplicationController
 
   def set_new_password
 
-    puts params
-    puts params.inspect
-    puts params.inspect
-    puts params.inspect
+    current_user.send_reset_password_instructions
+
+    render json: { 'sucess_message' => 'true' }
+
+    sign_out current_user
 
   end
+
+  private
+
+    def set_new_password_params
+
+      params.require(:set_new_password_params).permit(:command)
+
+    end
   
 end

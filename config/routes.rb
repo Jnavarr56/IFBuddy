@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   end
 
-  post "set_new_password", to: "dashboard#set_new_password"
+  post "set-new-password", to: "dashboard#set_new_password"
 
   resources :fasts #<- Draw all the standard routes for our Fast model.
 

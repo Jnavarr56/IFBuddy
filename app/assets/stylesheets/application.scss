@@ -13,6 +13,17 @@
  */
 
 
- @import "bootstrap";
- @import "font-awesome-sprockets";
- @import "font-awesome";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+.flashing {
+    opacity: 0;
+    animation: FlashMSG 6s ease-out 0s 1;    
+}
+
+@keyframes FlashMSG {
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
