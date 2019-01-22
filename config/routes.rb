@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   post "end-current-fast", to: "fasts#end_current_fast"
 
+  post "account-update-password-precheck", to: "dashboard#account_update_password_precheck"
+
   resources :fasts #<- Draw all the standard routes for our Fast model.
 
 end

@@ -4,6 +4,8 @@ class DashboardController < ApplicationController
 
   before_action :set_new_password_params, only: [:set_new_password]
 
+  before_action :account_update_password_precheck_params, only: [:account_update_password_precheck]
+
   def landing
 
   end
@@ -32,12 +34,24 @@ class DashboardController < ApplicationController
 
   end
 
+  def account_update_password_precheck
+
+    render json: { "return_message" =>  "#{current_user.valid_password?(account_update_password_precheck_params[:p]) ? "SUCCESS" : "FAIL"}" }
+  
+  end
+
   private
 
     def set_new_password_params
 
       params.require(:set_new_password_params).permit(:command)
 
+    end
+
+    def account_update_password_precheck_params
+
+      params.require(:account_update_password_precheck_params).permit(:command, :p)
+  
     end
   
 end

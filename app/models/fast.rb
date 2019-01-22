@@ -2,7 +2,7 @@ class Fast < ApplicationRecord
 
     belongs_to :user
 
-    validates :start_date, :start_time, :start_with_fast, :fasting_window_length, :eating_window_length, :active, :user_id, presence: true
+    validates :start_date, :start_time, :fasting_window_length, :eating_window_length, :active, :user_id, presence: true
 
     # Returns an hash that will return a string (:status) indicating
     # if user should be fasting or if user should be eating.
