@@ -7,12 +7,12 @@
   
     <div class="field form-group">
       <%= f.label :start_date, "Start Date" %><br />
-      <%= f.date_field :start_date, class: "" %>
+      <%= f.date_field :start_date, class: "form-control" %>
     </div>
 
     <div class="field form-group">
         <%= f.label :start_time, "Start Time" %><br />
-        <%= f.time_field :start_time, class: "" %>
+        <%= f.time_field :start_time, class: "form-control" %>
         <br>
         <%=label_tag 'use-current-time', 'Use Current Time?', class: 'form-check-label font-italic'%>
         <%=check_box_tag 'use-current-time', true, true, class: ''%>
@@ -27,12 +27,12 @@
 
     <div class="field form-group">
         <%= f.label :fasting_window_length, 'Fasting Window Length' %><br />
-        <%= f.number_field :fasting_window_length, class:'window-length', id: 'fasting-window-input-js', :value => '16' %>
+        <%= f.number_field :fasting_window_length, class:'window-length form-control', id: 'fasting-window-input-js', :value => '16' %>
     </div>
 
     <div class="field form-group">
         <%= f.label :eating_window_length, 'Eating Window Length' %><br />
-        <%= f.number_field :eating_window_length, class:'window-length', id: 'eating-window-input-js', :value => '8' %>
+        <%= f.number_field :eating_window_length, class:'window-length form-control', id: 'eating-window-input-js', :value => '8' %>
     </div>
   
     <div class="actions">

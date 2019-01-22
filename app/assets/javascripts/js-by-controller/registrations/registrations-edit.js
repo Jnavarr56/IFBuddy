@@ -52,5 +52,7 @@ document.addEventListener('turbolinks:load', function() {
 
     });
 
+    $('#current-password-id').prop('required', true);
+
 
 });

@@ -78,6 +78,8 @@ document.addEventListener('turbolinks:load', function() {
     // 4) Fill in the other window length field based on an input in the other.
     $('.window-length').on('input', function(e) {
 
+        // Round up or down
+        $(this).val($(this).val() - Math.floor($(this).val()) >= .5 ? Math.ceil($(this).val()) : Math.floor($(this).val()));
 
         $(`#${$(this).attr('id') === 'fasting-window-input-js' ? 'eating-window-input-js' : 'fasting-window-input-js'}`).val(
 
