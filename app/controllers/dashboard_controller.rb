@@ -20,13 +20,13 @@ class DashboardController < ApplicationController
 
       current_user.send_reset_password_instructions
 
-      render json: { 'sucess_message' => 'true' }
+      render json: { 'return_message' => 'SUCCESS' }
   
       sign_out current_user
     
     else
 
-      render json: { 'sucess_message' => 'FAIL' }
+      render json: { 'return_message' => 'FAIL' }
 
     end
 

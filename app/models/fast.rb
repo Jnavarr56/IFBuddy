@@ -104,4 +104,11 @@ class Fast < ApplicationRecord
 
     end
 
+    def kill_fast
+
+        self.update_attribute(:active, false)
+
+    end
+
 end
+

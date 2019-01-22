@@ -39,16 +39,13 @@ class FastsController < ApplicationController
 
         if end_current_fast_params[:command] == "end-current-fast"
 
-            puts current_user.fasts.last.inspect
-            puts current_user.fasts.last.inspect
-            puts current_user.fasts.last.inspect
-            puts current_user.fasts.last.inspect
+            current_user.kill_last_fast
 
-            render json: { 'sucess_message' => 'SUCESS' }
+            render json: { "return_message" =>  "#{!current_user.fasts.last.active ? "SUCCESS" : "FAIL"}" }
 
         else
 
-            render json: { 'sucess_message' => 'FAIL' }
+            render json: { "return_message" => "FAIL" }
 
         end
 

@@ -120,6 +120,12 @@ class User < ApplicationRecord
 
   end
 
+  def kill_last_fast
+
+    self.fasts.last.kill_fast
+
+  end
+
 end
 
 
