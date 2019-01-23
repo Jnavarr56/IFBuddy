@@ -1,5 +1,7 @@
 const sucessPwdCheckFromAcctUpdateAJAXPost = (data, textStatus, jqXHR) => {
 
+    console.log(data);
+
     if (data.return_message === "SUCCESS") { 
         
         $('#edit_user')[0].submit(); 
@@ -16,6 +18,8 @@ const sucessPwdCheckFromAcctUpdateAJAXPost = (data, textStatus, jqXHR) => {
 }
 
 const errorPwdCheckFromAcctUpdateAJAXPost = (data, textStatus, jqXHR) => {
+
+    console.log(data);
 
     console.log(jqXHR); 
     console.log(textStatus);

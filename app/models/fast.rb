@@ -1,6 +1,7 @@
 class Fast < ApplicationRecord
 
     belongs_to :user
+    has_many :checks, dependent: :destroy
 
     validates :start_date, :start_time, :fasting_window_length, :eating_window_length, :active, :user_id, presence: true
 

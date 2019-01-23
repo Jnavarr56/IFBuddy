@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :checks
   #Let devise handle the routes for authentication and OAuth.
   devise_for :users, controllers: { 
     
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
   post "end-current-fast", to: "fasts#end_current_fast"
 
   post "account-update-password-precheck", to: "dashboard#account_update_password_precheck"
+
+  post "check-in-today", to: "checks#check_in_today"
 
   resources :fasts #<- Draw all the standard routes for our Fast model.
 

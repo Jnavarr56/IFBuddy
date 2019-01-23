@@ -30,16 +30,47 @@ document.addEventListener('turbolinks:load', function() {
 
         e.preventDefault();
 
-        if (confirm('Are you sure you want to end your current fast?')) {
+        $('#end-current-fast-confirmation-modal').modal('show');
+
+        $('#confirm-end-current-fast-button').click(function() {
 
             let endFastPostData = { end_current_fast_params: { command: 'end-current-fast' } };
 
             //Send post request to /end-current-fast and send endFastPostData. See end-fast-ajax-functions.js
             standardAJAXPost('/end-current-fast', endFastPostData, sucessEndFastAJAXPost, errorEndFastAJAXPost); 
 
-        }
+        });
 
     });
+
+    $('#check-in-button').click(function(e) {
+
+        e.preventDefault();
+
+        let checkInPostData = { check_in_today_params: { command: 'check-in-today', check_in_today_notes: 'testing notes', fast_id: $(this).attr('data-fast-id') } };
+
+        //Send post request to /end-current-fast and send endFastPostData. See end-fast-ajax-functions.js
+        standardAJAXPost('/check-in-today', checkInPostData, sucessCheckInAJAXPost, errorCheckInAJAXPost); 
+
+    });
+
+    if ($("#start-new-fast-link") && $('#end-fast-post-link')) {
+
+        $("#start-new-fast-link").click(function(e) {
+
+            e.preventDefault();
+
+            $('#confirm-end-fast-before-new-modal').modal('show');
+
+            let newFastLinkURL = $(this).attr('href');
+
+            $('#confirm-end-fast-before-new-button').click(() => window.location.href = newFastLinkURL);
+
+        });
+
+    }   
+
+    
 
 
 });

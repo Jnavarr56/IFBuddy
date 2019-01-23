@@ -16,7 +16,13 @@ document.addEventListener('turbolinks:load', function() {
             // Check if new password length is valid.
             if ($('#user_password').val().length < 6) { 
             
-                alert('Password must be at least 6 characters.');
+                $('#registration-form-error-modal').modal('show');
+
+                $('#registration-form-error-modal-content').html(
+    
+                    '<p>New password must be at least 6 characters long.</p>'
+    
+                );
 
                 return;
 
@@ -24,8 +30,14 @@ document.addEventListener('turbolinks:load', function() {
 
             // Check if new password matches confirmation.
             if ($('#user_password').val() !== $('#user_password_confirmation').val()) {
-            
-                alert('Password confirmation must mactch the new password you entered.');
+
+                $('#registration-form-error-modal').modal('show');
+
+                $('#registration-form-error-modal-content').html(
+    
+                    '<p>Password confirmation does not match the new password you entered.</p>'
+    
+                );
 
                 return;
 
@@ -33,26 +45,42 @@ document.addEventListener('turbolinks:load', function() {
 
         }
 
-        if($('#user_current_password').val().length === 0) {
+        if($('#current-password-id').val().length === 0) {
 
-            alert('Password can not be blank.');
+            //alert('Password can not be blank.');
+
+            $('#registration-form-error-modal').modal('show');
+
+            $('#registration-form-error-modal-content').html(
+
+                '<p>Current password cannot be blank!<br><br>Please enter it before confirming updates to your account</p>'
+
+            );
 
             return;
 
         }
 
-        // If password passes initial validation then lets do a precheck.
-        if(confirm('Are you sure you want to make these changes?')) {
 
-            let acctUpdatePwdPreCheckPostData = { account_update_password_precheck_params: { command: 'check_password_from_account_update', p: $('#user_current_password').val() } };
+        $('#registration-confirmation-modal').modal('show');
+            
+        $('#confirm-registration-edit-button').click(function() {
 
-            standardAJAXPost('/account-update-password-precheck', acctUpdatePwdPreCheckPostData, sucessPwdCheckFromAcctUpdateAJAXPost, errorPwdCheckFromAcctUpdateAJAXPost)
+            if ($('#registration-confirmation-modal').css('display') !== 'none') {
 
-        }
+                // If password passes initial validation then lets do a precheck.
+                let acctUpdatePwdPreCheckPostData = { account_update_password_precheck_params: { command: 'check_password_from_account_update', p: $('#current-password-id').val() } };
+
+                standardAJAXPost('/account-update-password-precheck', acctUpdatePwdPreCheckPostData, sucessPwdCheckFromAcctUpdateAJAXPost, errorPwdCheckFromAcctUpdateAJAXPost)
+
+            }
+
+        });
+        
+
 
     });
 
     $('#current-password-id').prop('required', true);
-
 
 });

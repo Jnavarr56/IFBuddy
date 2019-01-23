@@ -68,3 +68,45 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%></p>
 
 <%= link_to "Back", :back %>
+
+
+<div class="modal fade" id="registration-form-error-modal" tabindex="-1" role="dialog" aria-labelledby="registration-form-error-modal-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="registration-form-error-modal-title">Confirm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body" id="registration-form-error-modal-content">
+          <p>Are you sure you want to end your current fast?</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="registration-confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="registration-confirmation-modal-title" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="registration-confirmation-modal-title">Confirm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" id="registration-confirmation-modal-title-content">
+        <p>Are you sure you want to make these changes?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" id="confirm-registration-edit-button">Yes</button>
+    </div>
+    </div>
+</div>
+</div>
+

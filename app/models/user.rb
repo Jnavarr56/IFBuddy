@@ -1,7 +1,9 @@
 class User < ApplicationRecord  
 
   has_many :fasts, dependent: :destroy
+  has_many :checks, through: :fasts
   has_one_attached :uploaded_profile_pic
+  
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
@@ -123,6 +125,13 @@ class User < ApplicationRecord
   def kill_last_fast
 
     self.fasts.last.kill_fast
+
+  end
+
+  #----------------
+  def has_checked_in_today
+
+    self.fasts.last.checks.exists?
 
   end
 

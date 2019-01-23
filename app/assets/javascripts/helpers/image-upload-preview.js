@@ -71,8 +71,14 @@ const enableProfilePicImageUploadWithPreview = () => {
       // B.2) If the file is not an image:
       if (this.files[0].type.split('/')[0] !== 'image') {
 
-          // B.2.1) Alert the user
-          alert('Profile picture must be an image file.');
+          // B.2.1) Alert the user with a modal
+          $('#registration-form-error-modal').modal('show');
+
+          $('#registration-form-error-modal-content').html(
+
+              '<p>Profile picture must be an image file.</p>'
+
+          );
 
           // B.2.1) Clear the file input to erase the non image file.
           $(this).val('');

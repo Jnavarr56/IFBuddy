@@ -14,13 +14,25 @@
     <%= @user.fasts.last.eating_window_length %> [Eating].
 </h6>
 
+<% if @user.has_checked_in_today %>
+
+    <p style="margin: 0;">You've checked in today!</p>
+
+<% elsif !@user.has_checked_in_today %>
+
+    <a id="check-in-button" data-fast-id=<%= @user.fasts.last.id %> href="#">Check In</a>
+
+    <br>
+
+<% end %>
+
 <%= link_to "End Current Fast Schedule", root_path, id: 'end-fast-post-link' %>
 
 <br>
 
-<%= link_to "Start a New Fast Schedule", new_fast_path %>
+<%= link_to "Start a New Fast Schedule", new_fast_path, id: "start-new-fast-link" %>
 
 <br>
 
 
-<%= link_to "Your Fast Data", fasts_path %>
+<%= link_to "Your Fast History", fasts_path %>
