@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:dash, :set_new_password, :account_update_password_precheck]
 
   before_action :set_new_password_params, only: [:set_new_password]
 

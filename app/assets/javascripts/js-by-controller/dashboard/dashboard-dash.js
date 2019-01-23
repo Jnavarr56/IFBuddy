@@ -54,7 +54,7 @@ document.addEventListener('turbolinks:load', function() {
 
     });
 
-    if ($("#start-new-fast-link") && $('#end-fast-post-link')) {
+    if ($("#start-new-fast-link").length && $('#end-fast-post-link').length) {
 
         $("#start-new-fast-link").click(function(e) {
 
