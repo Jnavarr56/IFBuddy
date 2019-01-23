@@ -17,6 +17,13 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require moment
+// moment-timezone without timezone data
+//= require moment-timezone
+// moment-timezone with timezone data from 2012-2022
+//= require moment-timezone-with-data-2012-2022
+// moment-timezone all timezone data
+//= require moment-timezone-with-data
 //= require_tree ./helpers
 //= require_tree ./AJAX-functions
 //= require_tree ./js-by-controller/dashboard

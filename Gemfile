@@ -80,6 +80,12 @@ gem 'jquery-rails'
 
 # Active Storage with AWS
 gem "aws-sdk-s3", require: false
+
+# momentJS
+gem 'momentjs-rails'
+
+# momentJS with timezone
+gem 'moment_timezone-rails'
 ####################################
 
 

@@ -111,5 +111,11 @@ class Fast < ApplicationRecord
 
     end
 
+    def get_start_date_obj
+
+        Time.utc(self.start_date.year, self.start_date.month, self.start_date.day, self.start_time.hour.to_i, self.start_time.strftime("%M").to_i, self.start_time.strftime("%S").to_i)
+
+    end
+
 end
 

@@ -34,6 +34,10 @@ Rails.application.routes.draw do
 
   resources :fasts #<- Draw all the standard routes for our Fast model.
 
+  #get "/fasts", to: "fasts#index"
+
+  #get "/fasts/new", to: "fasts#new"
+
 end
 
 

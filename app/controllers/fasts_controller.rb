@@ -20,7 +20,7 @@ class FastsController < ApplicationController
         # See below for the definition of fast_params and how I whitelisted the necessary params.
         @fast = Fast.new(fast_params.merge(user_id: current_user.id, active: true))
         
-        
+            
         if @fast.save
 
             redirect_to root_path #<- If save occurs properly then go to the home page.
@@ -46,6 +46,18 @@ class FastsController < ApplicationController
         else
 
             render json: { "return_message" => "FAIL" }
+
+        end
+
+    end
+
+    def index
+
+        @fasts = current_user.fasts
+
+        if !@fasts.exists?
+
+            redirect_to root_path
 
         end
 

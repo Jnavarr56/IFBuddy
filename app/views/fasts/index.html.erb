@@ -1,1 +1,36 @@
 <%= content_tag :h1, "Your Fast History" %>
+
+<% @fasts.each.with_index do |fast, i| %>
+
+    <%= puts fast.get_start_date_obj.utc_offset %>
+    <%= puts fast.updated_at.utc_offset %>
+    <%= puts Time.zone.name.inspect %>
+
+    <div class="card">
+        <h5 class="card-header">
+            <span class="fast-time-points">
+                <%= "#{fast.get_start_date_obj}" %>
+            </span> 
+            <span class="fast-time-points">
+                <%= "#{fast.updated_at - 5.hours}" %>
+            </span> 
+        </h5>
+        <div class="card-body">
+            <h5 class="card-title">
+                <%= "Check in Streak: Num" %>
+            </h5>
+            <p class="card-text">
+                <%= "Fast ##{i + 1}" %>
+            </p>
+            <% if fast.checks.exists? %>
+                <a href="#" data-check-id=<%= fast.checks.first.id %> class="btn btn-primary">View Check Ins</a>
+            <% end %>
+        </div>
+    </div>
+
+<% end %>
+<br>
+<%= link_to "Back", :back %>
+
+
+
