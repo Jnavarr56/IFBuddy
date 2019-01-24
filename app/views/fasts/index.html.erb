@@ -2,31 +2,36 @@
 
 <% @fasts.each.with_index do |fast, i| %>
 
-    <%= puts fast.get_start_date_obj.utc_offset %>
-    <%= puts fast.updated_at.utc_offset %>
-    <%= puts Time.zone.name.inspect %>
-
     <div class="card">
         <h5 class="card-header">
             <span class="fast-time-points">
                 <%= "#{fast.get_start_date_obj}" %>
             </span> 
-            <span class="fast-time-points">
-                <%= "#{fast.updated_at - 5.hours}" %>
+            -
+            <span class="<%= fast.active ? "PRESENT" : "fast-time-points" %>">
+                <%= "#{fast.active ? "Current" : fast.updated_at - 5.hours}" %>
             </span> 
         </h5>
         <div class="card-body">
             <h5 class="card-title">
-                <%= "Check in Streak: Num" %>
+                <%= "#{fast.max_streak > 0 ? "Max Check In Streak: #{fast.max_streak} Day#{fast.max_streak > 1 ? "s" : ""}" : "No Check Ins"}" %>
             </h5>
             <p class="card-text">
-                <%= "Fast ##{i + 1}" %>
+                <span class="needs-ordinal-indicator"><%= "#{@fasts.size - i}" %></span> Fast Attempted
+                <br>
+                <%= "Eating Window: #{fast.eating_window_length.to_i} hrs" %>
+                <br>
+                <%= "Fasting Window: #{fast.fasting_window_length.to_i} hrs" %>
             </p>
             <% if fast.checks.exists? %>
-                <a href="#" data-check-id=<%= fast.checks.first.id %> class="btn btn-primary">View Check Ins</a>
+                <a href="#" class="btn btn-primary">View Check Ins</a>
             <% end %>
         </div>
     </div>
+
+        
+
+
 
 <% end %>
 <br>

@@ -53,7 +53,9 @@ class FastsController < ApplicationController
 
     def index
 
-        @fasts = current_user.fasts
+        @fasts = current_user.fasts.order("id DESC")
+
+        
 
         if !@fasts.exists?
 
@@ -62,6 +64,8 @@ class FastsController < ApplicationController
         end
 
     end
+
+    
 
     private
 

@@ -117,5 +117,17 @@ class Fast < ApplicationRecord
 
     end
 
+    def max_streak
+
+        self.checks.exists? ? self.checks.maximum(:streak) : 0
+        
+    end
+
+    def total_days
+
+        #self.update
+
+    end
+
 end
 

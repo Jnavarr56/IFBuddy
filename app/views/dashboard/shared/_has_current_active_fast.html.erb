@@ -18,7 +18,7 @@
 
     <p style="margin: 0;">You've checked in today!</p>
 
-<% elsif !@user.has_checked_in_today %>
+<% else %>
 
     <a id="check-in-button" data-fast-id=<%= @user.fasts.last.id %> href="#">Check In</a>
 

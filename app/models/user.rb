@@ -129,9 +129,17 @@ class User < ApplicationRecord
   end
 
   #----------------
-  def has_checked_in_today
+  def has_checked_in_today  
 
-    self.fasts.last.checks.exists?
+    if self.fasts.last.active? && Check.where({created_at: (Time.now + 5.hours).midnight.to_date.midnight..(Time.now + 5.hours).midnight.to_date.end_of_day, fast_id: self.fasts.last.id}).exists?
+
+      true
+
+    else
+
+      false
+
+    end
 
   end
 
