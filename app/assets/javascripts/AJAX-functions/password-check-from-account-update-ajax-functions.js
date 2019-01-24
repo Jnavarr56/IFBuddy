@@ -12,7 +12,21 @@ const sucessPwdCheckFromAcctUpdateAJAXPost = (data, textStatus, jqXHR) => {
     
     else { 
         
-        alert('Password is incorrect. If you forgot your password, please log out and click \'Forgot my password.\''); 
+        //alert('Password is incorrect. If you forgot your password, please log out and click \'Forgot my password.\''); 
+
+        $('.modal').hide(); 
+
+        $('#global-error-modal-content').html(
+            
+            '<p>Password is incorrect. If you forgot your password, please log out and click \'Forgot my password.\'</p>'
+        );
+
+        $('#global-error-modal-title').html(
+
+            'Hold on!'
+        );
+
+        $('#global-error-modal').modal('show');
     
     }
 }
@@ -24,6 +38,21 @@ const errorPwdCheckFromAcctUpdateAJAXPost = (data, textStatus, jqXHR) => {
     console.log(jqXHR); 
     console.log(textStatus);
     
-    alert('Password is incorrect. If you forgot your password, please log out and click \'Forgot my password.\'');
+    //alert('Password is incorrect. If you forgot your password, please log out and click \'Forgot my password.\'');
+
+    $('.modal').hide(); 
+
+    $('#global-error-modal-content').html(
+            
+        '<p>Password is incorrect. If you forgot your password, please log out and click \'Forgot my password.\'</p>'
+    );
+
+    $('#global-error-modal-title').html(
+
+        'Hold on!'
+    );
+
+    $('#global-error-modal').modal('show');
+
 }
 

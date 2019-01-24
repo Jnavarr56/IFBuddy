@@ -8,8 +8,22 @@ const sucessCheckInAJAXPost = (data, textStatus, jqXHR) => {
     
     else { 
         
-        alert('Could not check in, please try again later.'); 
-    
+        //alert('Could not check in, please try again later.'); 
+
+        $('.modal').hide(); 
+
+        $('#global-error-modal-content').html(
+            
+            '<p>Could not check in, please try again later.</p>'
+        );
+
+        $('#global-error-modal-title').html(
+
+            'Sorry, Technical Issues!'
+        );
+
+        $('#global-error-modal').modal('show');
+
     }
 }
 
@@ -18,6 +32,21 @@ const errorCheckInAJAXPost = (data, textStatus, jqXHR) => {
     console.log(jqXHR); 
     console.log(textStatus);
     
-    alert('Could not check in, please try again later.'); 
+    //alert('Could not check in, please try again later.'); 
+
+    $('.modal').hide(); 
+
+    $('#global-error-modal-content').html(
+            
+        '<p>Could not check in, please try again later.</p>'
+    );
+
+    $('#global-error-modal-title').html(
+
+        'Sorry, Technical Issues!'
+    );
+
+    $('#global-error-modal').modal('show');
+
 }
 
