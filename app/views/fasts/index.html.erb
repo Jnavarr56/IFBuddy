@@ -22,16 +22,17 @@
                 <%= "Eating Window: #{fast.eating_window_length.to_i} hrs" %>
                 <br>
                 <%= "Fasting Window: #{fast.fasting_window_length.to_i} hrs" %>
+                <br>
+                <%= "Total Days Checked In: #{fast.checks.size}" %>
+                <br>
+                
             </p>
             <% if fast.checks.exists? %>
                 <a href="#" class="btn btn-primary">View Check Ins</a>
             <% end %>
+                <a href="#" class="btn btn-danger">Delete this Fast Record</a>
         </div>
     </div>
-
-        
-
-
 
 <% end %>
 <br>
