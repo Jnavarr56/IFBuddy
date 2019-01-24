@@ -48,6 +48,26 @@ class ChecksController < ApplicationController
 
     end
 
+    def show
+
+        fast =  Fast.find(params[:fast_id])
+
+        @get_checks = fast.checks.order("id desc")
+
+        if @get_checks.exists?
+
+            @checks = @get_checks 
+            
+            @fast_index =  Fast.where({user_id: fast.user_id}).order(id: :asc).pluck(:id).index(fast.id) + 1
+
+        else
+
+            redirect_to root_path
+
+        end
+
+    end
+
     private
 
     def check_in_today_params

@@ -29,5 +29,6 @@
 //= require_tree ./js-by-controller/dashboard
 //= require_tree ./js-by-controller/registrations
 //= require_tree ./js-by-controller/fasts
+//= require_tree ./js-by-controller/checks
 
 

@@ -25,10 +25,10 @@
                 <br>
                 <%= "Total Days Checked In: #{fast.checks.size}" %>
                 <br>
-                
+                <%= "Total Days in Fast: #{(((fast.updated_at - 5.hours) - fast.get_start_date_obj)/(24*60*60)).round(4)}" %>
             </p>
             <% if fast.checks.exists? %>
-                <a href="#" class="btn btn-primary">View Check Ins</a>
+                <a href="<%= "/fasts/#{fast.id}/checks" %>" class="btn btn-primary">View Check Ins</a>
             <% end %>
                 <a href="#" class="btn btn-danger">Delete this Fast Record</a>
         </div>

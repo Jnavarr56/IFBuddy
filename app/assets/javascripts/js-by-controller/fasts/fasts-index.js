@@ -9,16 +9,5 @@ document.addEventListener('turbolinks:load', function() {
 
     });
 
-    $('.needs-ordinal-indicator').each(function() {
-
-        $(this).html(getGetOrdinal($(this).html()));
-
-    });
-
-
-
-     
-
-    
     //console.log();
 });

@@ -1,0 +1,45 @@
+<h1>Check Ins for Your <span class="needs-ordinal-indicator"><%=@fast_index %></span> Attempted Fast </h1>
+
+<% @checks.each.with_index do |check, i| %>
+
+    <div class="card text-center">
+    <div class="card-header">
+        <span class="check-time-points"><%= check.updated_at - 5.hours %></span>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Check In <%= @checks.size - i %></h5>
+        <%= #<p class="card-text">With supporting text below as a natural lead-in to additional content.</p> 
+        %>
+        <% puts check.notes.inspect %>
+        <% puts check.notes.inspect %>
+        <% puts check.notes.inspect %>
+        <a href="#" class="btn btn-primary view-notes-button" data-notes="<%= check.notes %>">View Notes</a>
+    </div>
+    <div class="card-footer text-muted">
+        <span class=""><%=  check.format_time_since_check %></span>
+    </div>
+    </div>
+
+<% end %>
+
+<% if @get_checks.exists? %>
+
+    <div class="modal fade" id="checkNote" tabindex="-1" role="dialog" aria-labelledby="checkNoteTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="checkNoteTitle">Your Notes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" id="checkNoteContent">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+<% end %>
