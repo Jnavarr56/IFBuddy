@@ -47,10 +47,16 @@ document.addEventListener('turbolinks:load', function() {
 
         e.preventDefault();
 
-        let checkInPostData = { check_in_today_params: { command: 'check-in-today', check_in_today_notes: 'testing notes', fast_id: $(this).attr('data-fast-id') } };
+        $('#check-in-form-modal').modal('show');
 
-        //Send post request to /end-current-fast and send endFastPostData. See end-fast-ajax-functions.js
-        standardAJAXPost('/check-in-today', checkInPostData, sucessCheckInAJAXPost, errorCheckInAJAXPost); 
+        $('#check-in-form-modal-button').click(function() {
+
+            let checkInPostData = { check_in_today_params: { command: 'check-in-today', check_in_today_notes: $('#check-in-form-modal-content-text').val(), fast_id: $(this).attr('data-fast-id') } };
+
+            //Send post request to /end-current-fast and send endFastPostData. See end-fast-ajax-functions.js
+            standardAJAXPost('/check-in-today', checkInPostData, sucessCheckInAJAXPost, errorCheckInAJAXPost)
+
+        }); 
 
     });
 
