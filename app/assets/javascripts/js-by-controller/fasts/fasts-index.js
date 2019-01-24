@@ -9,5 +9,29 @@ document.addEventListener('turbolinks:load', function() {
 
     });
 
+    $('.delete-fast-card-button').each(function() {
+
+        $(this).click(function(e) {
+
+            e.preventDefault();
+
+            console.log('tit');
+
+            $('#confirm-delete-fast-button').attr('data-delete-fast-id', $(this).attr('data-delete-fast-id'));
+
+            $('#confirm-delete-fast-button').click(function() {
+
+                console.log($(this).attr('data-delete-fast-id'));
+
+                //Put a standard Post request for deletion of fast record
+
+            });
+
+            $('#confirmDeleteFastFromCardModal').modal('show');
+
+        });
+
+    });
+
     //console.log();
 });

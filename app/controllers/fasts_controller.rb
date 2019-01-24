@@ -55,8 +55,6 @@ class FastsController < ApplicationController
 
         @fasts = current_user.fasts.order("id DESC")
 
-        
-
         if !@fasts.exists?
 
             redirect_to root_path
