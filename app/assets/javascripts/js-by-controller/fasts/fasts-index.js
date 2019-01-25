@@ -21,9 +21,9 @@ document.addEventListener('turbolinks:load', function() {
 
             $('#confirm-delete-fast-button').click(function() {
 
-                console.log($(this).attr('data-delete-fast-id'));
-
                 //Put a standard Post request for deletion of fast record
+
+                standardAJAXDelete(`/fasts/${$(this).attr('data-delete-fast-id')}`);
 
             });
 

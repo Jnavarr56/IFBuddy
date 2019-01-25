@@ -5,6 +5,8 @@ class FastsController < ApplicationController
 
     before_action :end_current_fast_params, only: [:end_current_fast]
 
+    before_action :delete_fast_record_params, only: [:delete]
+
     def new
 
         @fast = Fast.new
@@ -63,6 +65,14 @@ class FastsController < ApplicationController
 
     end
 
+    def destroy
+
+        puts delete_fast_record_params.inspect
+        puts delete_fast_record_params.inspect
+        puts delete_fast_record_params.inspect
+        puts delete_fast_record_params.inspect
+
+    end
     
 
     private
@@ -78,6 +88,13 @@ class FastsController < ApplicationController
 
             # Use strong params to unsure only the inputs from the forms are passed through.
             params.require(:end_current_fast_params).permit(:command)
+                
+        end
+
+        def delete_fast_record_params
+
+            # Use strong params to unsure only the inputs from the forms are passed through.
+            params.require(:elete_fast_record_params).permit(:command)
                 
         end
 
