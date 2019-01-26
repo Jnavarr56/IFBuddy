@@ -1,17 +1,16 @@
 <% if @user.signed_up_with_oauth %>
 
-    <%= link_to('#', id: "notification-password") do %>
+    <%= link_to('#', id: "notification-password", class: "dropdown-item") do %>
 
-        Account Notification - <%= icon('fas', 'exclamation') %>
+        Settings  <span class="badge badge-danger">1</span>
 
     <% end %>
 
 <% else %>
 
-    <%= link_to "Account", edit_user_registration_path %>
+    <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item"  %>
 
 <% end %>
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
 
-<br>
 
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>

@@ -34,7 +34,7 @@
 
 document.addEventListener('turbolinks:load', function() {
 
-    setTimeout(() => $('.alert').remove(), 3500);
+    setTimeout(() => $('.alert').remove(), 2500);
 
 });
 

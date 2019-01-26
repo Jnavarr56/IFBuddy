@@ -6,7 +6,15 @@ const sucessSetNewPWDFromDashAJAXPost = (data, textStatus, jqXHR) => {
 
         $('.flashing').remove();
 
-        $('body').prepend($('<div class="alert alert-info flashing">You have been sent instructions to reset your password.</div>'));
+        $('<div class="alert alert-info flashing">You have been sent instructions to reset your password.</div>').insertAfter($('.navbar'));
+
+        setTimeout(() => {
+            
+            $('.alert').remove();
+
+            location.reload();
+        
+        },2500);
 
     }
 

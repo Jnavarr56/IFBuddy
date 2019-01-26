@@ -20,19 +20,19 @@
 
 <% else %>
 
-    <a id="check-in-button" href="#">Check In</a>
+    <a id="check-in-button" href="#" class="btn btn-primary">Check In</a>
 
     <br>
 
 <% end %>
 
-<%= link_to "End Current Fast Schedule", root_path, id: 'end-fast-post-link' %>
+<%= link_to "End Current Fast Schedule", root_path, id: 'end-fast-post-link', class: 'btn btn-primary' %>
 
 <br>
 
-<%= link_to "Start a New Fast Schedule", new_fast_path, id: "start-new-fast-link" %>
+<%= link_to "Start a New Fast Schedule", new_fast_path, id: "start-new-fast-link", class: 'btn btn-primary' %>
 
 <br>
 
 
-<%= link_to "Your Fast History", fasts_path %>
+<%= link_to "Your Fast History", fasts_path, class: 'btn btn-primary' %>

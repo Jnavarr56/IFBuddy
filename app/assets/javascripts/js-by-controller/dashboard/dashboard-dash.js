@@ -15,11 +15,21 @@ document.addEventListener('turbolinks:load', function() {
     // 2) Send password reset instructions via post request from dashboard.-----------------|
     if ($('#notification-password')) {
 
-        $('#notification-password').click(function() {
+        $('#notification-password').click(function(e) {
 
-            let newPasswordPostData = { set_new_password_params: { command: 'set_new_password_from_social_sign_up' } };        
-            //Send post request to /end-current-fast and send endFastPostData. See end-fast-ajax-functions.js
-            standardAJAXPost('/set-new-password', newPasswordPostData, sucessSetNewPWDFromDashAJAXPost, errorSetNewPWDFromDashAJAXPost);
+            e.preventDefault();
+
+            $('#account-notification-modal').modal('show');
+
+            $('#account-notification-modal-button').click(function(e) {    
+            
+                let newPasswordPostData = { set_new_password_params: { command: 'set_new_password_from_social_sign_up' } };        
+                //Send post request to /end-current-fast and send endFastPostData. See end-fast-ajax-functions.js
+                standardAJAXPost('/set-new-password', newPasswordPostData, sucessSetNewPWDFromDashAJAXPost, errorSetNewPWDFromDashAJAXPost);
+
+                $('.modal').modal('hide');
+
+            });
 
         });
 

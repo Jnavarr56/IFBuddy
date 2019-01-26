@@ -13,11 +13,6 @@
   </head>
   
   <body class="<%= controller_name %> <%= action_name %>">
-    <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %> <%= "flashing" %>">
-        <%= value %>
-      </div>
-    <% end %>
     <%= yield %>
 
     <div class="modal fade" id="global-error-modal" tabindex="-1" role="dialog" aria-labelledby="global-error-modal-title" aria-hidden="true">

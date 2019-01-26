@@ -17,21 +17,17 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Technology</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Account</a>
-          <a class="dropdown-item" href="#">Fast History</a>
-        </div>
-      </li>
       <li class="nav-item github-right">
         <a class="nav-link" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
       </li>
     </ul>
   </div>
 </nav>
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %> <%= "flashing" %>">
+    <%= value %>
+  </div>
+<% end %>
 <div class="container-fluid">
     <div id="particles-js"></div>
     <div class="row">
