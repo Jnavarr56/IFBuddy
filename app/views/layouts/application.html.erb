@@ -7,10 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <meta name="turbolinks-cache-control" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-
+  
   <body class="<%= controller_name %> <%= action_name %>">
     <% flash.each do |key, value| %>
       <div class="<%= flash_class(key) %> <%= "flashing" %>">

@@ -170,6 +170,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    particles-js-rails (2.0.0)
     pg (1.1.3)
     popper_js (1.14.5)
     public_suffix (3.0.3)
@@ -283,6 +284,7 @@ DEPENDENCIES
   momentjs-rails
   omniauth-facebook
   omniauth-google-oauth2
+  particles-js-rails (~> 2.0)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.1)

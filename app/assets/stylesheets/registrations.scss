@@ -1,0 +1,77 @@
+.registrations {
+    &.new {
+        .container-fluid {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .row {
+                position: relative;
+                bottom: 5%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                form {
+                    label, h2 {
+                        font-family: $landing-font;
+                    }
+                }
+            }
+        }
+    }
+}
+.btn-sign-up {
+    margin: 10px;
+}
+.break-sign-up {
+    display: none;
+}
+
+@media (max-width: 425px) {
+    .registrations {
+        &.new {
+            .container-fluid {
+                .row {
+                    bottom: -15px;
+                    form {  
+                        .form-group {
+                            margin: 0;
+                        }
+                        .btn {
+                            margin: 10px 0 10px 0;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .break-sign-up {
+        display: block;
+    }
+}
+@media (max-width: 350px) {
+    .registrations {
+        &.new {
+            .container-fluid {
+                .row {
+                    bottom: -50px;
+                    form {  
+                        .form-group {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .break-sign-up {
+        display: block;
+    }
+}
+
+#no-confirmation-instructions-registrations {
+    margin-bottom: 10px;
+}

@@ -5,5 +5,5 @@ document.addEventListener('turbolinks:load', function() {
     //Code for dashboard#landing view goes here.
 
 
-
+    particlesJS("particles-js", particleConfig);
 });

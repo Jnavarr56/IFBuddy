@@ -24,11 +24,19 @@
 //= require moment-timezone-with-data-2012-2022
 // moment-timezone all timezone data
 //= require moment-timezone-with-data
+//= require_tree ./data
 //= require_tree ./helpers
 //= require_tree ./AJAX-functions
 //= require_tree ./js-by-controller/dashboard
 //= require_tree ./js-by-controller/registrations
 //= require_tree ./js-by-controller/fasts
 //= require_tree ./js-by-controller/checks
+
+document.addEventListener('turbolinks:load', function() {
+
+    setTimeout(() => $('.alert').remove(), 3500);
+
+});
+
 
 

@@ -86,6 +86,9 @@ gem 'momentjs-rails'
 
 # momentJS with timezone
 gem 'moment_timezone-rails'
+
+# particlesJS
+gem 'particles-js-rails', '~> 2.0'
 ####################################
 
 

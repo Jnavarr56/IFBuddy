@@ -1,8 +1,13 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$landing-font: 'Khula';
-
+#particles-js {
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    z-index: -1;
+}
 .dashboard {
     &.landing {
         overflow: hidden;
@@ -26,14 +31,6 @@ $landing-font: 'Khula';
                     background-color: white;
                 }
             }
-        }
-        .github-right {
-            position: absolute;
-            top: 50%;
-            right: 0%;
-            padding-right: 16px;
-            transform: translateY(-50%);
-            font-size: 33.33px;
         }
     }
 }
