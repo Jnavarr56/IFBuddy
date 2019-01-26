@@ -1,19 +1,19 @@
 document.addEventListener('turbolinks:load', function() {
 
-    if (!fireJS('dashboard', 'dash')) { return false; }
+    if (!fireJS('dashboard', 'dash')) { clearInterval(timer); return false; }
 
     //Code for dashboard#dash view goes here.
 
 
     // 1) Function responsible for count down-----------------------------------------------|
-    if ($('#active-fast-schedule')) {
+    if ($('#active-fast-schedule').length) {
 
         displayTimeUntil('#active-fast-schedule');
 
     }
     
     // 2) Send password reset instructions via post request from dashboard.-----------------|
-    if ($('#notification-password')) {
+    if ($('#notification-password').length) {
 
         $('#notification-password').click(function(e) {
 
@@ -53,8 +53,8 @@ document.addEventListener('turbolinks:load', function() {
 
     });
 
-    if($('#incurrent-active-fast')) {
-
+    if($('#incurrent-active-fast').length) {
+        console.log('butt');
         $('#incurrent-active-fast-date').html(formatDateUserTime($('#incurrent-active-fast-date').html(), 'MMM Do YYYY h:mm a'));
     }
 

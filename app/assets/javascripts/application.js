@@ -32,6 +32,7 @@
 //= require_tree ./js-by-controller/fasts
 //= require_tree ./js-by-controller/checks
 
+var timer;
 
 
 document.addEventListener('turbolinks:load', function() {

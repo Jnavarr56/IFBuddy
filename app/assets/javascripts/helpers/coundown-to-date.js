@@ -1,6 +1,3 @@
-var timer;
-
-
 const displayTimeUntil = (displayID) => {
 
     let futureDate = new Date($(displayID).attr('data-future-date'));
