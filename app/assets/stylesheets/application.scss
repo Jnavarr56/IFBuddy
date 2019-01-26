@@ -55,4 +55,19 @@ body {
     padding-right: 16px;
     transform: translateY(-50%);
     font-size: 33.33px;
+    padding-bottom: 0;
+    padding-top: 0;
+    color: rgba(0, 0, 0, .5);
+    &:hover {
+        color: rgba(0, 0, 0, .75);
+    }
+}
+
+.nav-item {
+    font-family: $landing-font;
+}
+
+.alert {
+    position: absolute;
+    width: 100%;
 }

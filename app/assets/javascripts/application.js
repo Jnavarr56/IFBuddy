@@ -32,9 +32,14 @@
 //= require_tree ./js-by-controller/fasts
 //= require_tree ./js-by-controller/checks
 
+
+
 document.addEventListener('turbolinks:load', function() {
+    
 
     setTimeout(() => $('.alert').remove(), 2500);
+
+    
 
 });
 

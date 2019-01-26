@@ -53,6 +53,13 @@ document.addEventListener('turbolinks:load', function() {
 
     });
 
+    if($('#incurrent-active-fast')) {
+
+        $('#incurrent-active-fast-date').html(formatDateUserTime($('#incurrent-active-fast-date').html(), 'MMM Do YYYY h:mm a'));
+    }
+
+
+
     $('#check-in-button').click(function(e) {
 
         e.preventDefault();

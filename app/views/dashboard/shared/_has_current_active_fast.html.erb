@@ -1,18 +1,29 @@
 <% current_status = @user.fasts.last.current_status %>
 
-<h3 
+<h3 style="color: <%= current_status[:status].to_s == "Eating" ? "#42f459" : "#ff8989" %>;"
     id="active-fast-schedule"
     data-action= <%= current_status[:status].to_s %> 
     data-future-date= "<%= current_status[:date_until] %>"
->loading...</h3>
+><%= current_status[:status].to_s.upcase %></h3>
+
+
+<div id="cont" class="<%= current_status[:status].to_s == "Eating" ? "eating-text" : "fasting-text" %>" data-curr-window-length="<%= current_status[:status].to_s == "Eating" ? @user.fasts.last.eating_window_length : @user.fasts.last.fasting_window_length %>" data-pct="">
+<svg style="stroke:<%= current_status[:status].to_s == "Eating" ? "#42f459" : "#ff8989" %>;" id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="100"></circle>
+  <circle style="stroke:<%= current_status[:status].to_s == "Eating" ? "#42f459" : "#ff8989" %>;" id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="1000"></circle>
+</svg>
+</div>
 
 <br>
 
-<h6>
-    Your current fast schedule is 
-    <%= @user.fasts.last.fasting_window_length %> [Fasting]
-    <%= @user.fasts.last.eating_window_length %> [Eating].
-</h6>
+<p class="mobile-window-info text-center font-weight-bold">
+    Your current schedule is:
+</p>
+<ul class="mobile-window-info">
+    <li><%= @user.fasts.last.fasting_window_length %> [Fasting]</li>
+    <li><%= @user.fasts.last.eating_window_length %> [Eating]</li>
+</ul>
+
 
 <% if @user.has_checked_in_today %>
 
@@ -20,13 +31,13 @@
 
 <% else %>
 
-    <a id="check-in-button" href="#" class="btn btn-primary">Check In</a>
+    <a id="check-in-button" href="#" class="btn btn-warning">Check In</a>
 
     <br>
 
 <% end %>
 
-<%= link_to "End Current Fast Schedule", root_path, id: 'end-fast-post-link', class: 'btn btn-primary' %>
+<%= link_to "End Current Fast Schedule", root_path, id: 'end-fast-post-link', class: 'btn btn-danger' %>
 
 <br>
 
@@ -35,4 +46,3 @@
 <br>
 
 
-<%= link_to "Your Fast History", fasts_path, class: 'btn btn-primary' %>

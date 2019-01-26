@@ -2,18 +2,20 @@
 
 <br>
 
-<h6>
+<h4 id="incurrent-active-fast">
     Your current fast schedule will begin on 
-    <%= @user.fasts.last.start_date %> at
-    <%= @user.fasts.last.start_time.to_s.split(" ")[1] %>.
-</h6>
-
-<%= link_to "End Programmed Fast Schedule", root_path %>
-
-<br>
-
-<%= link_to "Start a New Fast Schedule", new_fast_path, id: "start-new-fast-link" %>
+    <span id="incurrent-active-fast-date">
+        <%= @user.fasts.last.start_date %> <%= @user.fasts.last.start_time.to_s.split(" ")[1] %> UTC
+    </span>
+</h4>
 
 <br>
 
-<%= link_to "Your Fast History", fasts_path %>
+<%= link_to "Start a New Fast Schedule", new_fast_path, id: "start-new-fast-link", class: 'btn btn-primary' %>
+
+<br>
+
+<%= link_to "End Programmed Fast Schedule", root_path, class: 'btn btn-danger' %>
+
+<br>
+
