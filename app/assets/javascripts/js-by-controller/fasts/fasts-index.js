@@ -21,9 +21,10 @@ document.addEventListener('turbolinks:load', function() {
 
             $('#confirm-delete-fast-button').click(function() {
 
-                //Put a standard Post request for deletion of fast record
+                let delete_fast_record_params = { delete_fast_record_params: { command: `delete_fast_record_params-${$(this).attr('data-delete-fast-id')}` } };
 
-                standardAJAXDelete(`/fasts/${$(this).attr('data-delete-fast-id')}`);
+                //Put a standard Post request for deletion of fast record
+                standardAJAXDelete(`/fasts/${$(this).attr('data-delete-fast-id')}`, delete_fast_record_params, sucessDeleteFastRecordAJAXPost, errorDeleteFastRecordAJAXPost);
 
             });
 

@@ -67,10 +67,19 @@ class FastsController < ApplicationController
 
     def destroy
 
-        puts delete_fast_record_params.inspect
-        puts delete_fast_record_params.inspect
-        puts delete_fast_record_params.inspect
-        puts delete_fast_record_params.inspect
+        record_to_delete = Fast.find(delete_fast_record_params[:command].split('-').last)
+
+        record_to_delete.destroy
+
+        if record_to_delete.destroyed?
+
+            render json: { "return_message" =>  "SUCCESS" }
+
+        else
+
+            render json: { "return_message" =>  "FAIL" }
+
+        end
 
     end
     
@@ -94,7 +103,7 @@ class FastsController < ApplicationController
         def delete_fast_record_params
 
             # Use strong params to unsure only the inputs from the forms are passed through.
-            params.require(:elete_fast_record_params).permit(:command)
+            params.require(:delete_fast_record_params).permit(:command)
                 
         end
 
