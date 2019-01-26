@@ -1,8 +1,58 @@
-<h1>Welcome to IFBuddy</h1>
-<br>
-<p>A simple web app for helping you with your daily Intermittent Fasting goals.</p>
-<%= link_to "Sign up", new_user_registration_path %>
-<p>Already have an account? <%= link_to "Log in", new_user_session_path %></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><i class="far fa-clock"></i> + <i class="fas fa-utensils"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Community</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Technology</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Account</a>
+          <a class="dropdown-item" href="#">Fast History</a>
+        </div>
+      </li>
+      <li class="nav-item github-right">
+        <a class="nav-link" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to IFBuddy</h1>
+                <p class="lead">A simple web app for helping you with your daily Intermittent Fasting goals.</p>
+                <p class="">IFBuddy lets you:</p>
+                <ul class="">
+                    <li>Create fast routines with custom eating and fasting windows</li>
+                    <li>Check which window you should be in and countdown until the next</li>
+                    <li>Get stats on all fasts routines attempted</li>
+                    <li>Have daily check-ins</li>
+                    <li>Sign in/up with Google or Facebook</li>
+                </ul>
+                <hr class="my-4">
+                <p class="">Intermittent Fasting made easy.</p>
+                <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+                <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
