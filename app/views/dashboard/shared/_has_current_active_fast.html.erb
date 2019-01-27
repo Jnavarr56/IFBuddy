@@ -25,11 +25,7 @@
 </ul>
 
 
-<% if @user.has_checked_in_today %>
-
-    <p style="margin: 0;">You've checked in today!</p>
-
-<% else %>
+<% if !@user.has_checked_in_today %>
 
     <a id="check-in-button" href="#" class="btn btn-warning">Check In</a>
 

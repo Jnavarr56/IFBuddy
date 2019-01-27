@@ -38,7 +38,7 @@
                             margin: 0;
                         }
                         .btn {
-                            margin: 10px 0 10px 0;
+                            margin: 5px 0 5px 0;
                             text-align: center;
                         }
                     }
@@ -68,4 +68,12 @@
     .break-sign-up {
         display: block;
     }
+}
+@media (max-height: 568px) {
+    .sessions {
+        &.new {
+            overflow-y: scroll;
+        }
+    }
+
 }

@@ -35,6 +35,7 @@
         .nav-item {
             left: 0 !important;
         }
+
     }
 
 }
@@ -110,7 +111,7 @@
             justify-content: center;
             .row {
                 position: relative;
-                bottom: 2.5%;
+                bottom: 0;
                 width: 100%;
                 display: flex;
                 align-items: center;
@@ -122,6 +123,9 @@
                     justify-content: center;
                 }
             }
+        }
+        .bottom-alert {
+            margin-bottom: 0;
         }
     }
 }
@@ -198,10 +202,17 @@
             display: none;
         }
     } 
+    .jumbotron {
+        .btn-forgot-landing {
+            display: none;
+        }
+
+    }
     .btn-forgot-landing {
         margin-top: 5px;
     }
 
+    
     #cont {
         transform: scale(1, 1);
         margin-bottom: 0px;
@@ -263,3 +274,15 @@
 
 }
 
+#check-in-form-modal {
+    .modal-content {
+        min-height: 500px;
+    }
+    .modal-body {
+        textarea {
+            height: 100%;
+            height: 300px;
+        }
+    }
+
+}

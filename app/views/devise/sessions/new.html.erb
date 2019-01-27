@@ -64,7 +64,7 @@
 
             <div class="actions">
               <%= f.submit "Log in", class:"btn btn-primary btn-sign-up" %>
-              <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: 'btn btn-primary btn-sign-up' %><br />
+              <%= link_to "Didn't get confirmation instructions?", new_confirmation_path(resource_name), class: 'btn btn-primary btn-sign-up' %><br />
               <%- if devise_mapping.omniauthable? %>
                 <%- resource_class.omniauth_providers.each do |provider| %>
                   <%= link_to "Sign in with <span class='badge badge-light'><i class='fab fa-#{OmniAuth::Utils.camelize(provider) == 'GoogleOauth2' ? 'google' : 'facebook-f'}'></span></i>".html_safe, omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary btn-sign-up' %>

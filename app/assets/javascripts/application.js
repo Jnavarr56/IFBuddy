@@ -38,7 +38,17 @@ var timer;
 document.addEventListener('turbolinks:load', function() {
     
 
-    setTimeout(() => $('.alert').remove(), 2500);
+    setTimeout(() => {
+        
+        $('.alert').each(function() {
+
+            if(!$(this).hasClass('bottom-alert')) {
+                $(this).remove();
+            }
+
+        });
+    
+    }, 2500);
 
     
 

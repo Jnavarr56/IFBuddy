@@ -68,8 +68,20 @@ body {
     font-family: $landing-font;
 }
 
-.alert {
+.flash-holder {
     position: absolute;
     width: 100%;
     z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .alert {
+        width: 100%;
+    }
 }
+
+.navbar {
+    z-index: 6000;
+}
+
