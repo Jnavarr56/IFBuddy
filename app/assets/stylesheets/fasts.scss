@@ -76,7 +76,7 @@
 }
 @media (max-width: 425px) {
     .fasts {
-        &.index,  {
+        &.index  {
             .container-fluid {
                 .row {
                 }
@@ -87,6 +87,37 @@
             }
             .search-fast-button-mobile {
                 display: inline-block;
+            }
+        }
+    }
+    .fasts {
+        &.new  {
+            overflow-y: scroll;
+            .container-fluid {
+                .row {
+
+                    bottom: 0;
+                }
+            }
+
+            .search-fast-button {
+                display: none;
+            }
+            .search-fast-button-mobile {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media (max-width: 330px) {
+    .fasts {
+        &.new  {
+            overflow-y: scroll;
+            .container-fluid {
+                .row {
+                    bottom: -50px;
+                }
             }
         }
     }

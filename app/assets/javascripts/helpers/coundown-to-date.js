@@ -5,6 +5,8 @@ const displayTimeUntil = (displayID) => {
     let $circle = $('#svg #bar');
   
     timer = setInterval(() => {
+
+        let countCircle = $('<div class="count-circle-flash"><div class="count-circle-flash-2"><div class="count-circle-flash-3"><div class="count-circle-flash-4"></div></div></div></div>');
         
         let milli = futureDate - (new Date());
   
@@ -18,13 +20,7 @@ const displayTimeUntil = (displayID) => {
 
         let countdownStats = `${actionText} ${hours} hrs, ${minutes} mins, ${Math.floor(seconds)} secs`;
 
-        //$(displayID).text(actionText + ' ' + countdownStats);
-
-        console.log($('#cont').attr('data-curr-window-length'));
-
         let val = parseFloat(((milli/(parseFloat($('#cont').attr('data-curr-window-length'))*1000*60*60)))*100);
-
-        console.log(val);
 
         let r = $circle.attr('r');
         let c = Math.PI*(r*2);
@@ -35,10 +31,13 @@ const displayTimeUntil = (displayID) => {
         let pct = ((100-val)/100)*c;
         
         $circle.css({ strokeDashoffset: pct});
-
-        console.log(pct);
         
         $('#cont').attr('data-pct', countdownStats);
+
+
+        $('#cont').append(countCircle);
+
+        setTimeout(()=> countCircle.remove(), 1000);
 
         if (milli <= 500) {
 

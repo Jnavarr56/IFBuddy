@@ -1,6 +1,6 @@
 .registrations {
     &.new, &.edit {
-        overflow: hidden;
+        overflow-y: scroll;
         .nav-item {
             left: 0 !important;
         }
@@ -52,14 +52,30 @@
                         font-family: $landing-font;
                     }
                     .form-group {
-                        margin-bottom: .25rem;
+                        margin-bottom: 0rem;
                     }
                 }
             }
         }
+        .jumbotron {
+            margin-bottom: .5rem;
+        }
     }
-
 }
+
+@media (min-width: 576px) {
+
+.registrations {
+    &.edit {
+        .jumbotron {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+    }
+}
+} 
+
 
 
 .btn-sign-up {
@@ -72,7 +88,7 @@
 @media (max-width: 425px) {
     .registrations {
         &.new, &.edit {
-            overflow: scroll;
+            overflow-y: scroll;
             .container-fluid {
                 .row {
                     bottom: -15px;
@@ -121,10 +137,24 @@
 
 @media (max-width: 362.5px) {
     .registrations {
-        &.new, &.edit {
+        &.new {
             .container-fluid {
                 .row {
                     bottom: -125px;
+                    form {  
+                        .form-group {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .registrations {
+        &.edit {
+            .container-fluid {
+                .row {
+                    bottom: -20px;
                     form {  
                         .form-group {
                             margin: 0;
@@ -139,10 +169,24 @@
 }
 @media (max-width: 350px) {
     .registrations {
-        &.new, &.edit {
+        &.new {
             .container-fluid {
                 .row {
                     bottom: -150px;
+                    form {  
+                        .form-group {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .registrations {
+        &.edit {
+            .container-fluid {
+                .row {
+                    bottom: 0px;
                     form {  
                         .form-group {
                             margin: 0;
@@ -197,4 +241,27 @@
 #clear-upload-button {
     position: absolute;
     left: 0;
+}
+
+
+
+@media (max-width: 330px) {
+
+    .registrations {
+        &.edit {
+            .container-fluid {
+                .row {
+                    bottom: -20px;
+                    form {  
+                        .form-group {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+    
 }

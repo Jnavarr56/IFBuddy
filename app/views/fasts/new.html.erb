@@ -59,7 +59,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
-<%= form_for @fast do |f| %>
+<%= form_for(@fast, html: { class: 'jumbotron' }) do |f|  %>
   
     <div class="field form-group">
       <%= f.label :start_date, "Start Date" %><br />
@@ -92,7 +92,7 @@
     </div>
   
     <div class="actions">
-      <%= f.submit "Create My Fast Schedule", class:"btn btn-primary" %>
+      <%= f.submit "Create My Fast Schedule", class:"btn btn-info" %>
     </div>
 
 <% end %>

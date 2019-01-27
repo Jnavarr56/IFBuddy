@@ -31,11 +31,13 @@
 //= require_tree ./js-by-controller/registrations
 //= require_tree ./js-by-controller/fasts
 //= require_tree ./js-by-controller/checks
+//= require_tree ./js-by-controller/sessions
 
-var timer;
+var timer, onPage;
 
 
 document.addEventListener('turbolinks:load', function() {
+
     
 
     setTimeout(() => {
