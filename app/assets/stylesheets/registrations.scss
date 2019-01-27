@@ -1,6 +1,9 @@
 .registrations {
     &.new, &.edit {
         overflow: hidden;
+        .nav-item {
+            left: 0 !important;
+        }
         .container-fluid {
             height: 100%;
             width: 100%;
@@ -42,9 +45,6 @@
 
 .registrations {
     &.edit {
-        .nav-item {
-            left: 0 !important;
-        }
         .container-fluid {
             .row {
                 form {
@@ -60,6 +60,7 @@
     }
 
 }
+
 
 .btn-sign-up {
     margin: 10px;

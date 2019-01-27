@@ -26,9 +26,9 @@
           <a class="dropdown-item" href="#">Fast History</a>
         </div>
       </li>
-      <li class="nav-item github-right">
-        <a class="nav-link" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
-      </li>
+      
+        <a class="nav-link github-right" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
+      
     </ul>
   </div>
 </nav>
@@ -71,6 +71,9 @@
                 <% end -%>
               <% end -%>
             </div>
+      
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'btn btn-primary btn-sign-up' %><br />
+
           <% end %>
 
     </div>

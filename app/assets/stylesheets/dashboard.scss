@@ -32,7 +32,11 @@
                 }
             }
         }
+        .nav-item {
+            left: 0 !important;
+        }
     }
+
 }
 
 @media (max-width: 576px) {
@@ -194,6 +198,9 @@
             display: none;
         }
     } 
+    .btn-forgot-landing {
+        margin-top: 5px;
+    }
 
     #cont {
         transform: scale(1, 1);
@@ -255,3 +262,4 @@
     }
 
 }
+
