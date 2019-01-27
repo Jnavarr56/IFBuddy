@@ -11,6 +11,8 @@ class FastsController < ApplicationController
 
         @fast = Fast.new
 
+        @user = current_user
+
     end
 
     def create
@@ -62,6 +64,8 @@ class FastsController < ApplicationController
             redirect_to root_path
 
         end
+
+        @user = current_user
 
     end
 

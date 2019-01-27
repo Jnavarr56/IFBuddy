@@ -1,3 +1,76 @@
 // Place all the styles related to the Fasts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.fasts {
+    &.new,  {
+        overflow: hidden;
+        .container-fluid {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .row {
+                position: relative;
+                bottom: 5%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                form {
+                    label, h2 {
+                        font-family: $landing-font;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.fasts {
+    &.index,  {
+        overflow-y: scroll;
+        .container-fluid {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            top: 78.5px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            .row {
+                position: relative;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                form {
+                    label, h2 {
+                        font-family: $landing-font;
+                    }
+                }
+                .column {
+                    align-items: flex-start;
+                }
+            }
+        }
+        .navbar {
+            position: fixed !important;
+            width: 100% !important;
+            z-index: 5000 !important;
+        }
+    }
+    span, h5, p {
+        font-family: $landing-font;
+    }
+}
+@media (max-width: 425px) {
+    .fasts {
+        &.index,  {
+            .container-fluid {
+                .row {
+                }
+            }
+        }
+    }
+}
