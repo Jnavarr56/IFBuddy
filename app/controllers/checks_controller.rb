@@ -66,6 +66,8 @@ class ChecksController < ApplicationController
 
         end
 
+        @user = current_user
+
     end
 
     private

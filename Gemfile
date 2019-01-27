@@ -70,7 +70,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 # Bootstrap
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.2.1'
 
 # Font-Awesome
 gem 'font-awesome-sass', '~> 5.5.0'
@@ -89,7 +89,11 @@ gem 'moment_timezone-rails'
 
 # particlesJS
 gem 'particles-js-rails', '~> 2.0'
+
+gem 'sprockets-rails', '~> 3.2'
 ####################################
+
+
 
 
 

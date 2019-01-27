@@ -59,9 +59,16 @@
             width: 100% !important;
             z-index: 5000 !important;
         }
+        input {
+//            width: 100%;
+        }
     }
-    .card, .btn {
+    .card {
         margin: 5px;
+        .btn {
+            margin: 5px;
+        }
+        
     }
     span, h5, p {
         font-family: $landing-font;
@@ -74,6 +81,30 @@
                 .row {
                 }
             }
+
+            .search-fast-button {
+                display: none;
+            }
+            .search-fast-button-mobile {
+                display: inline-block;
+            }
         }
     }
+}
+
+.search-fast-button:nth-child(1) {
+    border-right-style: solid;
+    border-right-color: black;
+    border-right-width: 2px;
+}
+
+#search-fast-record-input:focus {
+    outline: none !important;
+    box-shadow: none;
+    border:none;
+}
+
+.search-fast-button-mobile {
+    margin: 5px;
+    display: none;
 }

@@ -57,32 +57,65 @@
     <div class="row">
         <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
 
+        <button id="download-csv-button-mobile" class="btn btn-warning search-fast-button-mobile" type="button">Export to CSV</button>
+          <button id="options-search-fast-button-mobile" class="btn btn-warning search-fast-button-mobile dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Option</button>
+            <div class="dropdown-menu">
+                <a id="default-drop-down-search-mobile" class="dropdown-item fast-search-drop-down" data-search-class="start-date-search" href="#">Start Date</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="end-date-search" href="#">End Date</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="eating-window-search" href="#">Eating Window</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="fasting-window-search" href="#">Fasting Window</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="max-check-in-search" href="#">Max Check In</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="total-days-in-fast-search" href="#">Total Days In Fast</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="total-days-checked-in-search" href="#">Total Days Checked In</a>
+        </div>
+
+        <div class="input-group mb-3">
+        <div class="input-group-prepend" id="button-addon3">
+          <button id="download-csv-button" class="btn btn-warning search-fast-button" type="button">Export to CSV</button>
+          <button id="options-search-fast-button" class="btn btn-warning search-fast-button dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Option</button>
+            <div class="dropdown-menu">
+                <a id="default-drop-down-search" class="dropdown-item fast-search-drop-down" data-search-class="start-date-search" href="#">Start Date</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="end-date-search" href="#">End Date</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="eating-window-search" href="#">Eating Window</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="fasting-window-search" href="#">Fasting Window</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="max-check-in-search" href="#">Max Check In</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="total-days-in-fast-search" href="#">Total Days In Fast</a>
+                <a class="dropdown-item fast-search-drop-down" data-search-class="total-days-checked-in-search" href="#">Total Days Checked In</a>
+            </div>
+        </div>
+        <input id="search-fast-record-input" type="text" class="form-control" placeholder="" aria-label="Example text with two button addons" aria-describedby="button-addon3">
+      </div>    
+      
+
+            
+            
+      
 <% @fasts.each.with_index do |fast, i| %>
 
     <div class="card">
         <h5 class="card-header">
-            <span class="fast-time-points">
+            <span class="start-date-search fast-time-points">
                 <%= "#{fast.get_start_date_obj}" %>
             </span> 
             -
-            <span class="<%= fast.active ? "PRESENT" : "fast-time-points" %>">
+            <span class="end-date-search <%= fast.active ? "PRESENT" : "fast-time-points" %>">
                 <%= "#{fast.active ? "Current" : fast.updated_at - 5.hours}" %>
             </span> 
         </h5>
         <div class="card-body">
             <h5 class="card-title">
-                <%= "#{fast.max_streak > 0 ? "Max Check In Streak: #{fast.max_streak} Day#{fast.max_streak > 1 ? "s" : ""}" : "No Check Ins"}" %>
+                <%= "#{fast.max_streak > 0 ? "Max Check In Streak: <span class='max-check-in-search'>#{fast.max_streak}</span> Day#{fast.max_streak > 1 ? "s" : ""}" : "No Check Ins <span class='max-check-in-search' style='opacity: 0;'>0</span>"}".html_safe %>
             </h5>
             <p class="card-text">
                 <span class="needs-ordinal-indicator"><%= "#{@fasts.size - i}" %></span> Fast Attempted
                 <br>
-                <%= "Eating Window: #{fast.eating_window_length.to_i} hrs" %>
+                <span class="eating-window-search"><%= "Eating Window: #{fast.eating_window_length.to_i} hrs" %></span>
                 <br>
-                <%= "Fasting Window: #{fast.fasting_window_length.to_i} hrs" %>
+                <span class="fasting-window-search"><%= "Fasting Window: #{fast.fasting_window_length.to_i} hrs" %></span>
                 <br>
-                <%= "Total Days Checked In: #{fast.checks.size}" %>
+                <span class="total-days-checked-in-search"><%= "Total Days Checked In: #{fast.checks.size}" %></span>
                 <br>
-                <%= "Total Days in Fast: #{(((fast.updated_at - 5.hours) - fast.get_start_date_obj)/(24*60*60)).round(4)}" %>
+                <span class="total-days-in-fast-search"><%= "Total Days in Fast: #{(((fast.updated_at - 5.hours) - fast.get_start_date_obj)/(24*60*60)).round(4)}" %></span>
             </p>
             <% if fast.checks.exists? %>
                 <a href="<%= "/fasts/#{fast.id}/checks" %>" class="btn btn-primary">View Check Ins</a>
