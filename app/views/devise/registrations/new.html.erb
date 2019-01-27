@@ -40,10 +40,11 @@
 
 
 <div class="container-fluid">
+    <div id="particles-js"></div>
     <div class="row">
         <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
 
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'jumbotron'}) do |f| %>
             <%= devise_error_messages! %>
             <h2>Sign Up</h2>
             <div class="field form-group">
