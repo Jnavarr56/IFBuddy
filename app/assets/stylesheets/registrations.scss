@@ -1,5 +1,6 @@
 .registrations {
-    &.new {
+    &.new, &.edit {
+        overflow: hidden;
         .container-fluid {
             height: 100%;
             width: 100%;
@@ -17,11 +18,49 @@
                     label, h2 {
                         font-family: $landing-font;
                     }
+                    .btn-edit {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+
+#preview-pic, #current-account-pic {
+    height: 200px;
+    width: 200px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+}
+
+#preview-pic {
+    display: none;
+}
+    }
+}
+
+.registrations {
+    &.edit {
+        .nav-item {
+            left: 0 !important;
+        }
+        .container-fluid {
+            .row {
+                form {
+                    label, h2 {
+                        font-family: $landing-font;
+                    }
+                    .form-group {
+                        margin-bottom: .25rem;
+                    }
                 }
             }
         }
     }
+
 }
+
 .btn-sign-up {
     margin: 10px;
 }
@@ -31,7 +70,7 @@
 
 @media (max-width: 425px) {
     .registrations {
-        &.new {
+        &.new, &.edit {
             .container-fluid {
                 .row {
                     bottom: -15px;
@@ -51,10 +90,15 @@
     .break-sign-up {
         display: block;
     }
+    .registrations {
+        &.edit {
+            overflow-y: scroll;
+        }
+    }
 }
 @media (max-width: 350px) {
     .registrations {
-        &.new {
+        &.new, &.edit {
             .container-fluid {
                 .row {
                     bottom: -50px;
@@ -70,8 +114,39 @@
     .break-sign-up {
         display: block;
     }
+    
 }
 
 #no-confirmation-instructions-registrations {
     margin-bottom: 10px;
+}
+
+.form-group {
+    position: relative;
+}
+
+@media (max-width: 425px) {
+    .registrations {
+        
+        &.edit {
+            align-items: flex-start;    
+            .container-fluid {
+                align-items: flex-start;
+                .row {
+                }
+            }
+        }
+        #preview-pic, #current-account-pic {
+            height: 80px;
+            width: 80px;
+        }
+        #preview-pic {
+            left: 65%;
+        }
+    }
+
+}
+#clear-upload-button {
+    position: absolute;
+    left: 0;
 }
