@@ -90,9 +90,17 @@
         }
     }
 }
+.dropdown-fill {
+    background-color: #dc3545;
+}
 
 .dashboard {
     &.dash {
+
+        .badge {
+            position: relative;
+            top: -2.5px;
+        }
         h3, h4 {
             font-family: $landing-font;
         }
@@ -155,12 +163,13 @@
     border-radius: 100%;
     font-size: 7.5px;
     transform: translate(-50%, -50%);
+    font-family: $landing-font;
   }
   .eating-text:after {
-    color: #42f459;
+    color: white;
   } 
   .fasting-text:after {
-    color: #ffa5a5;
+    color: white;
   } 
 .menu-fast-window-info {
     margin-bottom: 0;
@@ -285,53 +294,139 @@
     border-radius: 100%;
     height: 0;
     width: 0;
-    animation: redCircleFlashOpen 1s ease 0s infinite;
-    background-color:rgba(red, .35);
+    animation: redCircleFlashOpen 1s ease 0s 1;
+    background-color:rgba(#ff4949, .15);
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-color: #ff4949;
+    border-width: 1px;
 }
 .red-count-circle-flash-2 {
     border-radius: 100%;
     height: 75%;
     width: 75%;
-    animation: redCircleFlashOpen 1s ease .25s infinite;
-    background-color: rgba(red, .35);
+    animation: redCircleFlashOpen 1s ease .15s 1;
+    background-color: rgba(#ff4949, .15);
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ff4949;
     
 }
 .red-count-circle-flash-3 {
     border-radius: 100%;
     height: 50%;
     width: 50%;
-    animation: redCircleFlashOpen 1s ease .5s infinite;
-    background-color:rgba(red, .35);
+    animation: redCircleFlashOpen 1s ease .25s 1;
+    background-color:rgba(#ff4949, .15);
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ff4949;
 }
 .red-count-circle-flash-4 {
     border-radius: 100%;
     height: 25%;
     width: 25%;
-    animation: redCircleFlashOpen 1s ease .75s infinite;
-    background-color:rgba(red, .35);
+    animation: redCircleFlashOpen 1s ease .35s 1;
+    background-color:rgba(#ff4949, .15);
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ff4949;
 }
 
 @keyframes redCircleFlashOpen {
 
     100% { 
-        height: 400px;
-        width: 400px;
+        height: 220px;
+        width: 220px;
         opacity: 0;
-        background-color:rgba(red, 0);
+        background-color:rgba(#ff4949, 0);
     
     }
 }
 
+.green-count-circle-flash {
+    border-radius: 100%;
+    height: 0;
+    width: 0;
+    animation: greenCircleFlashOpen .75s ease 0s 1;
+    background-color:rgba(#42f459, .15);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #42f459;
+}
+.green-count-circle-flash-2 {
+    border-radius: 100%;
+    height: 75%;
+    width: 75%;
+    animation: greenCircleFlashOpen .75s ease .15s 1;
+    background-color: rgba(#42f459, .15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #42f459;
+    
+    
+}
+.green-count-circle-flash-3 {
+    border-radius: 100%;
+    height: 50%;
+    width: 50%;
+    animation: greenCircleFlashOpen .75s ease .25ss 1;
+    background-color:rgba(#42f459, .15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #42f459;
+    
+}
+.green-count-circle-flash-4 {
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
+    animation: greenCircleFlashOpen .75s ease .35s 1;
+    background-color:rgba(#42f459, .15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #42f459;
+    
+}
+
+@keyframes greenCircleFlashOpen {
+
+    100% { 
+        height: 220px;
+        width: 220px;
+        opacity: 0;
+        background-color:rgba(#42f459, 0);
+    
+    }
+}
+
+#real-log-in-button {
+    display: none;
+
+
+}

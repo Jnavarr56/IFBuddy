@@ -32,12 +32,36 @@
 //= require_tree ./js-by-controller/fasts
 //= require_tree ./js-by-controller/checks
 //= require_tree ./js-by-controller/sessions
+//= require_tree ./js-by-controller/passwords
 
 var timer, onPage;
 
 
 document.addEventListener('turbolinks:load', function() {
 
+    $('.nav-link').each(function() {
+
+
+        if ($(this).text().trim() === "Community") {
+
+            $(this).attr('href', 'https://www.reddit.com/r/intermittentfasting/');
+
+        }
+
+        else if ($(this).text().trim() === "FAQ") {
+
+            $(this).attr('href', 'https://www.reddit.com/r/intermittentfasting/wiki/faq');
+
+
+        }
+
+        else if ($(this).text().trim() === "Technology") {
+
+            $(this).attr('href', 'https://github.com/Jnavarr56/IFBuddy/blob/master/README.md');
+
+        }
+
+    }); 
     
 
     setTimeout(() => {

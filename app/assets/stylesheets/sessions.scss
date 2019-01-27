@@ -1,5 +1,11 @@
 .sessions {
     &.new {
+        .alert {
+            top: 56px;
+            position: absolute;
+            width: 100%;
+            z-index: 8000;
+        }
         overflow: scroll;
         .container-fluid {
             height: 100%;
@@ -80,6 +86,24 @@
         &.new {
             overflow-y: scroll;
         }
+    }
+
+}
+
+.shake {
+    position: relative;
+    animation: QuickShake .75s ease 0s 1;
+}
+@keyframes QuickShake {
+
+    25% {
+        transform: translateX(-5%);
+    }
+    50% {
+        background-color: rgba(red, .25);
+    }
+    75% {
+        transform: translateX(5%);
     }
 
 }

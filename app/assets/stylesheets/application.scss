@@ -25,6 +25,7 @@ $landing-font: 'Khula';
 @import "sessions";
 @import "fasts";
 @import "checks";
+@import "passwords";
 
 
 
@@ -48,7 +49,7 @@ body {
     background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */   
     background: linear-gradient(to right, #00c6ff, #0072ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.dashboard.landing, .registrations.new, .sessions.new  {
+.dashboard.landing, .registrations.new, .sessions.new, .passwords.new, .passwords.edit   {
     animation: Gradient 15s ease infinite;
     background-size: 400% 400%;
 
@@ -139,4 +140,10 @@ body {
     height: 100% !important;
     width: 100% !important;
     z-index: -1;
+}
+
+.modal-header, .modal-body {
+    * {
+        font-family: $landing-font;
+    }
 }

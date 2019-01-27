@@ -2,6 +2,8 @@
 
 class Users::PasswordsController < Devise::PasswordsController
 
+  
+
   # GET /resource/password/new
   # def new
     # super
@@ -47,6 +49,8 @@ class Users::PasswordsController < Devise::PasswordsController
     end
     #super
   end
+
+
 
   
   #protected

@@ -91,6 +91,10 @@ gem 'moment_timezone-rails'
 gem 'particles-js-rails', '~> 2.0'
 
 gem 'sprockets-rails', '~> 3.2'
+
+#Email Validator
+
+gem 'email_address'
 ####################################
 
 

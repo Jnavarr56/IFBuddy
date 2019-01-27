@@ -141,7 +141,7 @@
     </div>
 <% end %>
 
-<% if !@user.has_checked_in_today %>
+<% if !@user.has_checked_in_today && @user.fasts.exists? && @user.fasts.last.active  %>
     <div class="modal fade" id="check-in-form-modal" tabindex="-1" role="dialog" aria-labelledby="check-in-form-modal-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

@@ -79,7 +79,7 @@
 
 
 .btn-sign-up {
-    margin: 5px 5px 5px 0;
+    margin: 5px 5px 5px 10px;
 }
 .break-sign-up {
     display: none;
@@ -264,4 +264,12 @@
 
     
     
+}
+
+#sign-up-button-trigger {
+    color: white;
+}
+
+#real-sign-up-button {
+    display: none;
 }

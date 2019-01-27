@@ -6,7 +6,7 @@ const displayTimeUntil = (displayID) => {
   
     timer = setInterval(() => {
 
-        let countCircle = $('<div class="count-circle-flash"><div class="count-circle-flash-2"><div class="count-circle-flash-3"><div class="count-circle-flash-4"></div></div></div></div>');
+        let countCircle = $(`<div class='${$('#active-fast-schedule').attr('data-action') === 'Fasting' ? 'red' : 'green'}-count-circle-flash'><div class='${$('#active-fast-schedule').attr('data-action') === 'Fasting' ? 'red' : 'green'}-count-circle-flash-2'><div class='${$('#active-fast-schedule').attr('data-action') === 'Fasting' ? 'red' : 'green'}-count-circle-flash-3'><div class='${$('#active-fast-schedule').attr('data-action') === 'Fasting' ? 'red' : 'green'}-count-circle-flash-4'></div></div></div></div>`);
         
         let milli = futureDate - (new Date());
   
@@ -33,11 +33,10 @@ const displayTimeUntil = (displayID) => {
         $circle.css({ strokeDashoffset: pct});
         
         $('#cont').attr('data-pct', countdownStats);
-
-
+        
         $('#cont').append(countCircle);
 
-        setTimeout(()=> countCircle.remove(), 1000);
+        setTimeout(()=> countCircle.remove(), 1010);
 
         if (milli <= 500) {
 

@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   post "check-in-today", to: "checks#check_in_today"
 
   get "/fasts/:fast_id/checks", to: "checks#show"
+  
+  post "/check-password-sign-up", to: "dashboard#check_password_sign_up"
+
+  post "/check-password-login", to: "dashboard#check_password_login"
 
   resources :fasts #<- Draw all the standard routes for our Fast model.
 
