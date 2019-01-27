@@ -63,7 +63,7 @@
 
 
 .btn-sign-up {
-    margin: 10px;
+    margin: 10px 10px 10px 0;
 }
 .break-sign-up {
     display: none;
@@ -72,6 +72,7 @@
 @media (max-width: 425px) {
     .registrations {
         &.new, &.edit {
+            overflow: scroll;
             .container-fluid {
                 .row {
                     bottom: -15px;
@@ -128,7 +129,6 @@
 
 @media (max-width: 425px) {
     .registrations {
-        
         &.edit {
             align-items: flex-start;    
             .container-fluid {
@@ -138,11 +138,11 @@
             }
         }
         #preview-pic, #current-account-pic {
-            height: 80px;
-            width: 80px;
+            height: 80px  !important;
+            width: 80px  !important;
         }
         #preview-pic {
-            left: 65%;
+            left: 65% !important;
         }
     }
 

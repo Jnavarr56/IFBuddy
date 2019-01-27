@@ -83,4 +83,12 @@ document.addEventListener('turbolinks:load', function() {
 
     $('#current-password-id').prop('required', true);
 
+    $('#trigger-account-cancel').click(function(e) {
+
+        e.preventDefault();
+
+        $('#real-account-cancel').click();
+
+    });
+
 });
