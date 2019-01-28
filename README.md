@@ -3,7 +3,7 @@
 #
 IFBuddy is a mostly responsive full stack web app for tracking Intermittent Fasting schedules and saving fast schedule data.
 
- Visit here ---> [ifbuddy.herokuapp.com](ifbuddy.herokuapp.com)
+[ifbuddy.herokuapp.com](ifbuddy.herokuapp.com)
 
 ###### IFBuddy is deployed on Heroku and uses:
 
