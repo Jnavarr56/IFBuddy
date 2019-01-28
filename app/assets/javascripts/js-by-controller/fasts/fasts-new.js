@@ -80,7 +80,7 @@ document.addEventListener('turbolinks:load', function() {
     // 4) Fill in the other window length field based on an input in the other.
     $('.window-length').on('input', function(e) {
 
-        if($(this).val() <= 0) {
+        if($(this).val() < 0) {
 
             $(this).val(1);
         }
