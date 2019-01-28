@@ -1,0 +1,198 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><i class="far fa-clock"></i> + <i class="fas fa-utensils"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+        <li class="nav-item nav-image">
+            <%= @user.return_user_img %>
+        </li>  
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= render "dashboard/shared/links" %>
+            </div>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Community</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Technology</a>
+      </li>
+
+      <% if @user.fasts.exists? %>
+
+        <li class="nav-item">
+            <%= link_to "Your Fast History", fasts_path, class: 'nav-link' %>
+        </li>
+
+      <% end %>
+      <% if @user.has_current_active_fast? %>
+        <li class="nav-item">
+            <p class="nav-link menu-fast-window-info">
+                Your current fast schedule is 
+                <%= @user.fasts.last.fasting_window_length %> [Fasting]
+                <%= @user.fasts.last.eating_window_length %> [Eating].
+            </p>
+        </li>
+      <% end %>
+      <li class="nav-item mobile-github-link-menu">
+        <a class="nav-link" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-left"></i></a>
+      </li>
+    </ul>
+    <a class="nav-link github-right" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
+  </div>
+</nav>
+<div class="flash-holder">
+
+<% if @user.has_checked_in_today %>
+    <div class="alert bottom-alert alert-success" role="alert">
+        You've checked in today!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+<% end %>
+
+<% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %> <%= "flashing" %>">
+      <%= value %>
+    </div>
+<% end %>
+
+</div>
+  
+<div class="container-fluid">
+    <div class="row">
+        <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
+            <% if @user.has_current_active_fast? %>
+
+                <%= render "dashboard/shared/has_current_active_fast" %>
+
+            <% elsif @user.has_current_inactive_fast? %>
+
+                <%= render "dashboard/shared/has_current_inactive_fast" %>
+
+            <% elsif @user.has_incurrent_active_fast? %>
+
+                <%= render "dashboard/shared/has_incurrent_active_fast" %>
+
+            <% else %>
+
+                <%= render "dashboard/shared/has_no_fast" %>
+                
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<% if @user.has_current_active_fast? %>
+    <div class="modal fade" id="end-current-fast-confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="end-current-fast-confirmation-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="end-current-fast-confirmation-modal-title">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="end-current-fast-confirmation-modal-title-content">
+                <p>Are you sure you want to end your current fast?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" id="confirm-end-current-fast-button">Yes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirm-end-fast-before-new-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-end-fast-before-new-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="confirm-end-fast-before-new-modal-title">Confirm</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" id="confirm-end-fast-before-new-modal-title-content">
+            <p>Starting a new fast will end your ongoing fast.<br><br>Proceed?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary" id="confirm-end-fast-before-new-button">Yes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+<% end %>
+
+<% if !@user.has_checked_in_today && @user.fasts.exists? && @user.fasts.last.active  %>
+    <div class="modal fade" id="check-in-form-modal" tabindex="-1" role="dialog" aria-labelledby="check-in-form-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="check-in-form-modal-title">Add a Note or Comment (optional)</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" id="check-in-form-modal-content">
+            <textarea class="form-control" id="check-in-form-modal-content-text"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-fast-id=<%= @user.fasts.last.id %> id="check-in-form-modal-button">Submit</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    </div>
+    </div>
+<% end %>
+
+
+<% if @user.signed_up_with_oauth %>
+    <div class="modal fade" id="account-notification-modal" tabindex="-1" role="dialog" aria-labelledby="account-notification-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="account-notification-modal-title">Account Notification</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" id="account-notification-modal-content">
+            <p id="account-notification-modal-content-text">
+                It looks like you signed up with <%= "#{@user.provider == "facebook" ? "Facebook" : "Google"}"%>.
+                <br>
+                <br>
+                You can always still log in with Facebook or Google, but if you want to make change to your 
+                account or sign in with a password you'll need to set a password.
+                <br>
+                <br>
+                Do you want to get password reset instructions sent to your email?
+                <br>
+                <br>
+                The process will log you out.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="account-notification-modal-button">Send Me Instructions</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" id="account-notification-modal-button-dismiss">Not Now</button>
+        </div>
+        </div>
+    </div>
+<% end %>
