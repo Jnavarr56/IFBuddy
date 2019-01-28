@@ -1,6 +1,6 @@
 # IFBuddy :alarm_clock: :hamburger:
 
-#
+
 IFBuddy is a mostly responsive full stack web app for tracking Intermittent Fasting schedules and saving fast schedule data.
 
 [ifbuddy.herokuapp.com](ifbuddy.herokuapp.com)
