@@ -28,3 +28,5 @@
 
 # Comment the line below when deploying to Heroku.
 /config/local_env.yml
+
+#BE SO CAREFUL WITH YOUR KEYS YOU IDIOT
