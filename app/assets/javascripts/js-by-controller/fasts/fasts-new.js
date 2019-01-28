@@ -69,6 +69,8 @@ document.addEventListener('turbolinks:load', function() {
 
         $('#fast_start_with_fast').prop('checked', otherBtnID === 'fast-start-button' ? false : true);
 
+        $('#fast_start_with_fast').val(otherBtnID === 'fast-start-button' ? 0 : 1);
+
         console.log($('#fast_start_with_fast').prop('checked'));
     });
 
@@ -78,6 +80,11 @@ document.addEventListener('turbolinks:load', function() {
     // 4) Fill in the other window length field based on an input in the other.
     $('.window-length').on('input', function(e) {
 
+        if($(this).val() <= 0) {
+
+            $(this).val(1);
+        }
+
         // Round up or down
         $(this).val($(this).val() - Math.floor($(this).val()) >= .5 ? Math.ceil($(this).val()) : Math.floor($(this).val()));
 
@@ -85,7 +92,6 @@ document.addEventListener('turbolinks:load', function() {
 
             24 - $(this).val()
         );
-
     
     });
 
