@@ -1,0 +1,21 @@
+<h3>Your fast has not begun yet.</h3>
+
+<br>
+
+<h4 id="incurrent-active-fast">
+    Your current fast schedule will begin on 
+    <span id="incurrent-active-fast-date">
+        <%= @user.fasts.last.start_date %> <%= @user.fasts.last.start_time.to_s.split(" ")[1] %> UTC
+    </span>
+</h4>
+
+<br>
+
+<%= link_to "Start a New Fast Schedule", new_fast_path, id: "start-new-fast-link", class: 'btn btn-info' %>
+
+<br>
+
+<%= link_to "End Programmed Fast Schedule", root_path, class: 'btn btn-danger' %>
+
+<br>
+

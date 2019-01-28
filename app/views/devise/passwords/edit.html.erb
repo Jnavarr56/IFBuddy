@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><i class="far fa-clock"></i> + <i class="fas fa-utensils"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link " href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Community</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Technology</a>
+      </li>
+        <a class="nav-link github-right" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div id="particles-js"></div>
+<div id="particles-js2"></div>
+  <div class="row">
+    <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'jumbotron' }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <h2>Set a New Password</h2>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="field form-group">
+    <%= f.label :password, "New password" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Change my password", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+    </div>
+  </div>
+</div>
+

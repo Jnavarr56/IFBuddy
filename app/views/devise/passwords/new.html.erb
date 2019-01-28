@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><i class="far fa-clock"></i> + <i class="fas fa-utensils"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link " href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Community</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Technology</a>
+      </li>
+        <a class="nav-link github-right" href="https://github.com/Jnavarr56/IFBuddy"><i class="fab fa-github text-right"></i></a>
+      
+    </ul>
+  </div>
+</nav>
+
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %> <%= "flashing" %>">
+    <%= value %>
+  </div>
+<% end %>
+
+
+<div class="container-fluid">
+<div id="particles-js"></div>
+<div id="particles-js2"></div>
+    <div class="row">
+        <div class="column col-12 col-md-10 col-lg-8 col-xl-6">
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'jumbotron' }) do |f| %>
+  <h2>Reset Password</h2>
+  <%= devise_error_messages! %>
+
+  <div class="field form-group">
+    <%= f.label :email, 'Email' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class: 'btn btn-primary' %>
+    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: 'btn btn-primary' %><br />
+  </div>
+<% end %>
+
+
+    </div>
+  </div>
+</div>
+

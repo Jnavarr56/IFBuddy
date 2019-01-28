@@ -1,0 +1,149 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$landing-font: 'Khula';
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300|Catamaran:300|Josefin+Sans:300|Khula:300|Montserrat|Noto+Sans|Quicksand|Raleway|Yantramanav:300');
+@import "dashboard";
+@import "registrations";
+@import "sessions";
+@import "fasts";
+@import "checks";
+@import "passwords";
+
+
+
+
+.flashing {
+    opacity: 0;
+    animation: FlashMSG 2.5s ease 0s 1;    
+}
+
+@keyframes FlashMSG {
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+body, html {
+    height: 100vh;
+    width: 100vw;
+}
+body {
+    margin: 0 auto;
+    background: #00c6ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */   
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.dashboard.landing, .registrations.new, .sessions.new, .passwords.new, .passwords.edit   {
+    animation: Gradient 15s ease infinite;
+    background-size: 400% 400%;
+
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.github-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    padding-right: 16px;
+    transform: translateY(-50%);
+    font-size: 33.33px;
+    padding-bottom: 0;
+    padding-top: 0;
+    color: rgba(0, 0, 0, .5);
+    &:hover {
+        color: rgba(0, 0, 0, .75);
+    }
+}
+
+.nav-item {
+    font-family: $landing-font;
+}
+
+.flash-holder {
+    position: absolute;
+    width: 100%;
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .alert {
+        width: 100%;
+    }
+}
+
+.navbar {
+    z-index: 6000;
+}
+
+#particles-js {
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    z-index: -1;
+}
+#particles-js2 {
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    z-index: -1;
+}
+
+.modal-header, .modal-body {
+    * {
+        font-family: $landing-font;
+    }
+}
