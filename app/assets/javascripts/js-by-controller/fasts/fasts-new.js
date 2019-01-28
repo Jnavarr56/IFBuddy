@@ -85,6 +85,11 @@ document.addEventListener('turbolinks:load', function() {
             $(this).val(1);
         }
 
+        if($(this).val() > 24) {
+
+            $(this).val(24);
+        }
+
         // Round up or down
         $(this).val($(this).val() - Math.floor($(this).val()) >= .5 ? Math.ceil($(this).val()) : Math.floor($(this).val()));
 
