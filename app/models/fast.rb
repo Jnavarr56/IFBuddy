@@ -17,7 +17,7 @@ class Fast < ApplicationRecord
 
         s_t = self.start_time.to_s.split(" ")[1].split(":").map { |n| n.to_i }
 
-        full_start_obj = DateTime.new(s_d[0], s_d[1], s_d[2], s_t[0], s_t[1], s_t[2])
+        full_start_obj = DateTime.new(s_d[0], s_d[1], s_d[2], s_t[0], s_t[1], s_t[2]).change({:offset => "+0000"})
 
         full_days_since = (full_current_obj - full_start_obj).to_i
 
