@@ -6,7 +6,7 @@ IFBuddy is a mostly responsive full stack web app for tracking Intermittent Fast
 [ifbuddy.herokuapp.com](ifbuddy.herokuapp.com)
 
 ###### IFBuddy is deployed on Heroku and uses:
-
+  - Ruby on Rails 5.2.2
   - Amazon Web Services (S3)
   - Facebook OAuth API
   - Google Contacts OAuth API
